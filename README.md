@@ -12,23 +12,25 @@
 
 ¹ BioXP Research Institute, Donghae, Gangwon-do, Republic of Korea  
 † Co-first authors  
-\* Corresponding author: [email — to be inserted]
+\* Corresponding author: [sola16@gmail.com]
 
 ---
 
 ## Abstract
 
-We identify a lipid-metabolic exhaustion event that defines a discrete phase boundary
-separating compensatory resilience from inflammatory vulnerability during the
-MCI-to-AD transition. Integrating SEA-AD single-cell pseudo-progression
+We identify a statistically bounded astrocytic metabolic phase boundary that
+structures the transition from compensatory resilience to accelerated vulnerability
+during the MCI-to-AD continuum. Integrating SEA-AD single-cell pseudo-progression
 (1.3M nuclei, 84 donors), a reversible zebrafish MCI model, murine validation,
 and longitudinal ADNI CSF proteomics (n = 735), we show that astrocytic PTGDS
-undergoes a statistically bounded biphasic trajectory — compensatory induction
-followed by abrupt exhaustion — at CPS 0.46 (Davies' p = 0.032).
-Metabolic collapse precedes inflammatory amplification, repositioning LCN2-mediated
-neuroinflammation as a downstream consequence rather than a causal driver.
+undergoes a biphasic trajectory — compensatory induction followed by abrupt
+exhaustion — defining a discrete inflection at CPS 0.46 (Davies' p = 0.032).
+Critically, astrocytic metabolic collapse precedes inflammatory amplification:
+PTGDS exhaustion gates subsequent LCN2 induction and CREB/NGFR neurogenic
+suppression, repositioning neuroinflammation as a downstream consequence
+rather than a causal driver.
 This phase boundary corresponds clinically to MMSE 26.0 (95% CI: 24.8–27.2),
-defining a quantifiable therapeutic window.
+defining a quantifiable pre-boundary therapeutic window.
 
 > **Preprint:** [bioRxiv link — to be inserted upon posting]
 
@@ -160,9 +162,9 @@ Zebrafish experimental data (`data/zebrafish/`) are released under [CC BY 4.0](h
 
 **Youngouk Kim** (Corresponding author)  
 BioXP Research Institute, Donghae, Gangwon-do, Republic of Korea  
-sola16@gmail.com
+📧 [sola16@gmail.com]
 
 ---
 
 *This work was conducted at BioXP Research Institute, Donghae, Gangwon-do, Republic of Korea.*  
-*Zebrafish experiments were performed at Zefit Co., Ltd. (Seoul, Republic of Korea).*
+*Zebrafish experiments were performed at Zefit Co., Ltd. (Daegu, Republic of Korea).*
