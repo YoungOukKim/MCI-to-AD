@@ -1,12 +1,3 @@
-# Whole-mount double immunofluorescence at 14 dpf
-# Markers: BLBP (radial glia / reactive gliosis) + Nestin (neural progenitor)
-# Antibodies: anti-BLBP (Abcam ab32423, TRITC secondary ab6718)
-#             anti-Nestin clone 10C2 (Merck MAB5326, Alexa Fluor 488 ab150113)
-# Mounting: 2% agarose; Imaging: Agilent BioTek Lionheart FX automated microscope
-# Quantification: ImageJ, fixed ROI (whole head), mean gray value (a.u.)
-# N=10 larvae per group
-# Statistics: Two-tailed T-test; ** p<0.01 vs Control; *** p<0.001 vs Control;
-#             ### p<0.001 vs MCI
 Marker,Larva,Control,MCI,MCI_BXP101_0.4ugml
 BLBP_TRITC,1,12.170,31.407,13.328
 BLBP_TRITC,2,14.052,27.224,12.941

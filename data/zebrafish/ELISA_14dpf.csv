@@ -1,13 +1,3 @@
-# ELISA protein quantification at 14 dpf
-# Markers: TNF-alpha, IL-6 (sandwich ELISA)
-# ELISA kits: Zebrafish TNFa ELISA Kit (ELK8512-96T, ELK Biotechnology)
-#             Zebrafish IL6 ELISA Kit (ELK9663-96T, ELK Biotechnology)
-# Sample preparation: 30 larvae pooled per sample, PBS homogenate w:v = 1:9
-# Calculation: corrected OD (sample OD - blank OD) -> standard curve
-# Units: pg/ml
-# N=1 measurement per group (pooled sample)
-# Note: mRNA/protein discordance for TNF-alpha at BXP0.6 confirms
-#       post-transcriptional suppression (mRNA=1.28x vs protein=0.70x vs MCI)
 Marker,Unit,Control,MCI,MCI_BXP101_0.3ugml,MCI_BXP101_0.4ugml,MCI_BXP101_0.6ugml
 TNF_alpha,pg/ml,31.128,39.723,41.918,26.486,21.796
 IL_6,pg/ml,64.369,91.833,94.711,54.578,23.368

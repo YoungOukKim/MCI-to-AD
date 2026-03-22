@@ -1,9 +1,3 @@
-# Red ball avoidance test at 14 dpf
-# Method: 6-well plate, 5 larvae/well, N=20 in quadruplicate (4 wells x 5 larvae)
-# Measurement: % of larvae in non-stimuli area (6 min, 12-sec intervals)
-# MCI induction: LPS 5 ug/L + D-galactose 0.2 mg/L + HFD 10%
-# BXP-101 composition: Atractylodin + Wedelolactone + Honokiol
-# Statistics: Two-tailed T-test; * p<0.05 vs Control, # p<0.05 vs MCI
 Replicate,Well,Control,MCI,MCI_Donepezil_10uM,MCI_BXP101_0.3ugml,MCI_BXP101_0.4ugml,MCI_BXP101_0.6ugml
 1,1,63.93,40.00,67.02,87.54,80.00,56.39
 1,2,76.39,58.36,68.21,50.49,27.87,79.34
