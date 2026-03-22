@@ -1,0 +1,32 @@
+# Whole-mount double immunofluorescence at 14 dpf
+# Markers: BLBP (radial glia / reactive gliosis) + Nestin (neural progenitor)
+# Antibodies: anti-BLBP (Abcam ab32423, TRITC secondary ab6718)
+#             anti-Nestin clone 10C2 (Merck MAB5326, Alexa Fluor 488 ab150113)
+# Mounting: 2% agarose; Imaging: Agilent BioTek Lionheart FX automated microscope
+# Quantification: ImageJ, fixed ROI (whole head), mean gray value (a.u.)
+# N=10 larvae per group
+# Statistics: Two-tailed T-test; ** p<0.01 vs Control; *** p<0.001 vs Control;
+#             ### p<0.001 vs MCI
+Marker,Larva,Control,MCI,MCI_BXP101_0.4ugml
+BLBP_TRITC,1,12.170,31.407,13.328
+BLBP_TRITC,2,14.052,27.224,12.941
+BLBP_TRITC,3,13.718,24.839,12.425
+BLBP_TRITC,4,14.168,22.524,12.072
+BLBP_TRITC,5,13.320,15.325,9.071
+BLBP_TRITC,6,12.731,16.731,8.141
+BLBP_TRITC,7,12.111,16.291,9.458
+BLBP_TRITC,8,15.591,15.329,8.828
+BLBP_TRITC,9,13.968,17.855,7.445
+BLBP_TRITC,10,12.425,15.726,13.718
+BLBP_TRITC,Average,13.4254,20.3251,10.7427
+Nestin_GFP,1,11.578,8.086,8.187
+Nestin_GFP,2,10.030,8.613,8.506
+Nestin_GFP,3,10.567,9.647,8.381
+Nestin_GFP,4,10.908,8.608,8.504
+Nestin_GFP,5,10.641,12.229,8.702
+Nestin_GFP,6,10.354,11.323,8.444
+Nestin_GFP,7,9.964,9.015,8.212
+Nestin_GFP,8,7.815,8.432,7.526
+Nestin_GFP,9,13.506,8.420,8.546
+Nestin_GFP,10,11.506,8.338,9.964
+Nestin_GFP,Average,10.6869,9.2711,8.4972
