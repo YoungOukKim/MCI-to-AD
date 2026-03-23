@@ -1,3 +1,17 @@
+<p align="center">
+  <img src="assets/cover_panelA.png" width="800" alt="PTGDS Phase Boundary"/>
+</p>
+
+> **Astrocytic PTGDS dynamics reveal a metabolic phase boundary**
+> that constrains stage-dependent vulnerability during the MCI-to-AD transition.
+> Phase boundary: CPS 0.46 ≡ MMSE 26.0 | Davies' p = 0.032 | AUC = 0.743 | HR = 3.2
+>
+> [View full integrated figure](assets/cover_full.png) &nbsp;|&nbsp;
+> [bioRxiv preprint](https://www.biorxiv.org) &nbsp;|&nbsp;
+> [Data & Code](#analysis)
+
+---
+
 # Astrocytic PTGDS dynamics define a metabolic phase boundary that structures stage-dependent vulnerability during the MCI-to-AD transition
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
