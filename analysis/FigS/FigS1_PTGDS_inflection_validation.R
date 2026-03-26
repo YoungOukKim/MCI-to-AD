@@ -34,39 +34,32 @@ set.seed(42)
 # ------------------------------------------------------------------------------
 # Paths (relative to repository root; override with environment variables)
 # ------------------------------------------------------------------------------
-DATA_FILE <- Sys.getenv("SEAAD_RDATA",
-               unset = "data/SEA-AD/SEAAD_processed_data.RData")
-OUT_DIR   <- Sys.getenv("FIGS1_OUT",
-               unset = "output/FigS1")
+# NOTE: SEAAD_processed_data.RData contains cell-level data (~1.3M nuclei)
+#       and cannot be redistributed due to Allen Brain Atlas data use policy.
+#       Instead, use the pre-computed bin-level summary provided in this repo:
+#         data/SEA-AD/FigS1_bin_means.csv
+#       To regenerate from raw data, run: analysis/01_SEAAD_data_processing.R
+BIN_CSV <- Sys.getenv("FIGS1_BIN_CSV",
+              unset = "data/SEA-AD/FigS1_bin_means.csv")
+OUT_DIR <- Sys.getenv("FIGS1_OUT",
+              unset = "output/FigS1")
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # ------------------------------------------------------------------------------
-# 1. Data loading and bin-level summary
+# 1. Data loading
 # ------------------------------------------------------------------------------
-message(">>> [1/4] Loading data...")
-load(DATA_FILE)
+# Uses pre-computed bin-level summary (9 rows x bin).
+# Columns: bin, PTGDS_mean, PTGDS_sd, n_cells, PTGDS_se, PTGDS_ma
+message(">>> [1/4] Loading bin-level summary...")
+bin_means <- data.table::as.data.table(read.csv(BIN_CSV))
 
-astro_df <- df[cell_type_label == "Astrocyte" &
-               !is.na(bin_rounded) &
-               bin_rounded >= 0.1 & bin_rounded <= 0.9]
+# Verify required columns
+required_cols <- c("bin", "PTGDS_mean", "PTGDS_sd", "n_cells", "PTGDS_se", "PTGDS_ma")
+missing_cols  <- setdiff(required_cols, names(bin_means))
+if (length(missing_cols) > 0)
+  stop("Missing columns in BIN_CSV: ", paste(missing_cols, collapse = ", "))
 
-bin_means <- astro_df[, .(
-  PTGDS_mean = mean(PTGDS, na.rm = TRUE),
-  PTGDS_sd   = sd(PTGDS,   na.rm = TRUE),
-  n_cells    = .N
-), by = .(bin = bin_rounded)][order(bin)]
-
-bin_means[, PTGDS_se := PTGDS_sd / sqrt(n_cells)]
-
-# 3-bin moving average
-bin_means[, PTGDS_ma := {
-  x <- PTGDS_mean; n <- length(x); ma <- numeric(n)
-  for (i in seq_len(n)) {
-    idx <- max(1, i - 1):min(n, i + 1)
-    ma[i] <- mean(x[idx])
-  }
-  ma
-}]
+message("  Loaded ", nrow(bin_means), " bins from: ", BIN_CSV)
 
 # ------------------------------------------------------------------------------
 # 2. Segmented regression
@@ -219,3 +212,8 @@ message("  Size: ", W, " x ", H, " in @ ", DPI, " dpi")
 message(sprintf("  Breakpoint: %.3f (95%% CI: %.2f-%.2f), Davies p=%.4f",
                 bp, round(ci_lo_bp, 2), round(ci_hi_bp, 2), davies_p))
 message(strrep("=", 55))
+
+# Save bin-level summary for repository (run once to generate data/SEA-AD/FigS1_bin_means.csv)
+# Uncomment below if regenerating from raw SEAAD_processed_data.RData:
+# write.csv(bin_means, file.path("data/SEA-AD", "FigS1_bin_means.csv"), row.names = FALSE)
+# message("  Saved bin-level summary to data/SEA-AD/FigS1_bin_means.csv")
