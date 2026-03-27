@@ -221,7 +221,7 @@ BioXP Research Institute, Donghae, Gangwon-do, Republic of Korea
 
 ---
 
-*Zebrafish experiments were performed at Zefit Co., Ltd. (Daegu, Republic of Korea).*
+*Zebrafish experiments were performed at Zefit Inc., (Daegu, Republic of Korea).*
 ---
 
 ## Companion Study
