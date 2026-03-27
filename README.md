@@ -222,3 +222,16 @@ BioXP Research Institute, Donghae, Gangwon-do, Republic of Korea
 ---
 
 *Zebrafish experiments were performed at Zefit Co., Ltd. (Daegu, Republic of Korea).*
+---
+
+## Companion Study
+
+This work is accompanied by a second paper examining the mechanistic basis of metabolic collapse:
+
+> **Astrocytic lactate shuttle disruption is linked to cross-cellular lysosomal energetic decoupling in Alzheimer's disease**
+> 
+> 👉 [YoungOukKim/AD-Metabolic-Collapse](https://github.com/YoungOukKim/AD-Metabolic-Collapse)
+
+Together, these two studies establish:
+- **MCI-to-AD** → *When* the phase boundary occurs (PTGDS exhaustion at CPS 0.46)
+- **AD-Metabolic-Collapse** → *Why* it collapses (ANLS disruption → energy-starved lysosome)
