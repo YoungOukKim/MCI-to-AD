@@ -25,7 +25,7 @@ injury effectors (NEFL, LCN2).
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| CSF NEFL vs cognitive decline | r = −0.36 | Strong; positive control for the injury arm |
+| CSF NEFL vs cognitive decline | r = −0.35 | Strong; positive control for the injury arm |
 | CSF LCN2 vs cognitive decline | r = −0.14 (TMT-MS) | Weak; clearest on TMT-MS |
 | CSF PTGDS (upstream) | between-platform r ≈ 0.15 | Tissue-restricted; no robust cognitive association |
 

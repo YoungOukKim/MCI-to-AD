@@ -1,15 +1,15 @@
-# Fig. 3 & Fig. S3 — Network Pharmacology and PTGDS Conservation
+# Fig. 4 & Supplementary Fig. S5 — Network Pharmacology and PTGDS Conservation
 
 ## Contents
 
 | Script | Output | Description |
 |--------|--------|-------------|
-| `Fig3_network_pharmacology.R` | `output/Fig3/` | Fig. 3A–D: BXP-101 target network and docking |
-| `FigS3_PTGDS_conservation.R` | `output/FigS3/` | Fig. S3A–D: PTGDS evolutionary conservation |
+| `Fig3_network_pharmacology.R` | `output/Fig3/` | **Fig. 4A–D**: BXP-101 target network and docking (folder/script names retain legacy `Fig3` prefix) |
+| `FigS3_PTGDS_conservation.R` | `output/FigS3/` | **Supplementary Fig. S5**: PTGDS evolutionary conservation (legacy `FigS3` prefix; ⚠ verify panel layout vs current Supp Fig S5) |
 
 ---
 
-## Fig. 3 — Network Pharmacology of BXP-101
+## Fig. 4 — Network Pharmacology of BXP-101
 
 ### Panels
 | Panel | Description |
@@ -34,7 +34,9 @@ docking_scores.csv          # AutoDock Vina summary (Compound, Target, PDB, Affi
 
 ---
 
-## Fig. S3 — PTGDS Evolutionary Conservation
+## Supplementary Fig. S5 — PTGDS Evolutionary Conservation
+
+> ⚠ **Numbering & panels:** this analysis is **Supplementary Fig. S5** in the published paper (legacy files keep the `FigS3` prefix). The panel breakdown below is from an earlier draft layout; verify against the current Supp Fig S5 (A: MSA alignment; B: structural superimposition/RMSD; C: NF-κB RELA binding affinity) before relying on it.
 
 ### Panels
 | Panel | Description |
@@ -71,12 +73,12 @@ aligned.fasta.treefile      # IQ-TREE output (Newick format)
 ## Usage
 
 ```r
-# Fig. 3
+# Fig. 4 (network pharmacology; legacy Fig3 paths)
 Sys.setenv(NET_DATA = "data/network_pharmacology")
 Sys.setenv(FIG3_OUT = "output/Fig3")
 source("analysis/Fig3_network_pharmacology/Fig3_network_pharmacology.R")
 
-# Fig. S3
+# Supp Fig. S5 (PTGDS conservation; legacy FigS3 paths)
 Sys.setenv(CONSERVATION_DATA = "data/conservation")
 Sys.setenv(FIGS3_OUT         = "output/FigS3")
 source("analysis/Fig3_network_pharmacology/FigS3_PTGDS_conservation.R")

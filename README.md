@@ -29,7 +29,7 @@ and conserved across zebrafish and murine systems, where BXP-101 suppresses
 LCN2/neuroinflammation and rescues cognition.
 
 In ADNI CSF across two orthogonal platforms (TMT-MS, SomaScan), the downstream
-injury arm reaches CSF: NEFL rises strongly with cognitive decline (r = −0.36)
+injury arm reaches CSF: NEFL rises strongly with cognitive decline (r = −0.35)
 and LCN2 tracks decline weakly (most clearly on TMT-MS). Upstream PTGDS is
 tissue-restricted (between-platform r ≈ 0.15; no robust cognitive association),
 so the CSF data provide mechanistic concordance for the downstream effectors.
@@ -52,8 +52,7 @@ MCI-to-AD/
 │   │   ├── 03_ADNI_clinical_analysis.R      # CSF associations, demographics
 │   │   └── Fig5_CSF_concordance.R           # NEFL/LCN2/PTGDS CSF panels (Fig. 3)
 │   └── FigS/
-│       ├── FigureS7_ADNI_CSF_crossplatform.R   # Fig. S7 panels (between-platform r ~ 0.15)
-│       └── oligo_MCT_detection_check.R      # detection-rate gate utility
+│       └── FigureS7_ADNI_CSF_crossplatform.R   # Fig. S7 panels (between-platform r ~ 0.15)
 │
 ├── data/ADNI/                          # de-identified summary CSVs (not raw ADNI)
 │   ├── FigS6_platform_cor.csv
@@ -90,7 +89,7 @@ MCI-to-AD/
 | PTGDS inflection (vertex) | CPS 0.47 | Quadratic model, donor-level: β₂ = −2.27, p = 0.006 (n = 84) |
 | Segmented breakpoint | CPS 0.23 (95% CI 0.13–0.33) | Davies' test, donor-level p = 0.032 |
 | External bulk-protein replication | PTGDS AD vs control p = 3.4 × 10⁻³ | ROSMAP/Banner/Emory (Johnson et al. 2022) |
-| CSF downstream arm | NEFL r = −0.36; LCN2 r = −0.14 (TMT) | per-batch z; NEFL positive control |
+| CSF downstream arm | NEFL r = −0.35; LCN2 r = −0.14 (TMT) | per-batch z; NEFL positive control |
 | CSF upstream PTGDS | tissue-restricted (between-platform r ≈ 0.15) | TMT-MS / SomaScan |
 | Zebrafish avoidance deficit | −22.7% (p = 0.020) | Red-ball avoidance, 14 dpf |
 | BXP-101 rescue | +18.6 pp (p = 0.016) | BXP-101 0.6 μg/ml vs MCI |
