@@ -20,7 +20,7 @@ We describe an astrocytic PTGDS inflection that marks the transition between
 compensatory buffering and accelerated neurodegeneration during the MCI-to-AD
 continuum. Integrating SEA-AD single-nucleus pseudo-progression (1.3M nuclei,
 84 donors), a reversible zebrafish MCI model, murine validation, and longitudinal
-ADNI CSF proteomics (n = 735), we show that astrocytic PTGDS follows a biphasic
+ADNI CSF proteomics (n = 1104), we show that astrocytic PTGDS follows a biphasic
 trajectory with a statistically resolved inflection — quadratic vertex at
 CPS 0.47 (donor-level β₂ = −2.27, p = 0.006); segmented breakpoint at CPS 0.23
 (Davies' p = 0.032). The inflection is independently reproduced in external
@@ -72,7 +72,7 @@ MCI-to-AD/
 | Dataset | Access | Link |
 | --- | --- | --- |
 | SEA-AD snRNA-seq (1.3M nuclei) | Public | Allen Brain Cell Atlas (human MTG 10x SEA-AD) |
-| ADNI CSF proteomics (n = 735) | Registration required | adni.loni.usc.edu |
+| ADNI CSF proteomics (n = 1104) | Registration required | adni.loni.usc.edu |
 | Zebrafish qPCR / ELISA / Behavior | This repository | `data/zebrafish/` |
 | Murine qPCR / Behavior | Available upon request | Corresponding author |
 
