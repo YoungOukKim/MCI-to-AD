@@ -16,23 +16,7 @@
 
 ## Abstract
 
-We describe an astrocytic PTGDS inflection that marks the transition between
-compensatory buffering and accelerated neurodegeneration during the MCI-to-AD
-continuum. Integrating SEA-AD single-nucleus pseudo-progression (1.3M nuclei,
-84 donors), a reversible zebrafish MCI model, murine validation, and longitudinal
-ADNI CSF proteomics (n = 1104), we show that astrocytic PTGDS follows a biphasic
-trajectory with a statistically resolved inflection — quadratic vertex at
-CPS 0.47 (donor-level β₂ = −2.27, p = 0.006); segmented breakpoint at CPS 0.23
-(Davies' p = 0.032). The inflection is independently reproduced in external
-bulk-brain proteomics (ROSMAP/Banner/Emory; PTGDS AD vs control p = 3.4 × 10⁻³)
-and conserved across zebrafish and murine systems, where BXP-101 suppresses
-LCN2/neuroinflammation and rescues cognition.
-
-In ADNI CSF across two orthogonal platforms (TMT-MS, SomaScan), the downstream
-injury arm reaches CSF: NEFL rises strongly with cognitive decline (r = −0.35)
-and LCN2 tracks decline weakly (most clearly on TMT-MS). Upstream PTGDS is
-tissue-restricted (between-platform r ≈ 0.15; no robust cognitive association),
-so the CSF data provide mechanistic concordance for the downstream effectors.
+Alzheimer’s disease shows prolonged prodromal stability before accelerating decline, yet molecular markers resolving this heterogeneity are limited. Using pseudo-progression analysis of 1.3 million SEA-AD single nuclei (84 donors), we identify a reproducible biphasic astrocytic trajectory anchored to prostaglandin D2 synthase (PTGDS), with a statistically resolved donor-level inflection (quadratic β₂ = −2.27, p = 0.006; vertex CPS 0.47). The same directional change is independently reproduced in external brain proteomics (ROSMAP and Banner; AD versus control p = 3.4 × 10⁻³), and the biphasic pattern reconciles previously conflicting CSF reports as stage-dependent. In ADNI CSF, downstream NEFL tracks cognitive decline strongly and LCN2 weakly, whereas PTGDS itself is tissue-restricted and not a stand-alone predictor. We propose, but do not establish, that post-inflection PTGDS attenuation accompanies LCN2-linked inflammation and NGFR suppression. These data position astrocytic PTGDS as a candidate stage marker, not a causal driver, of the compensatory-to-vulnerable shift in the aging brain.
 
 ---
 
@@ -122,8 +106,8 @@ variables; set these to your local data locations before running.
 
 | Figure | Content | Script / asset |
 |---|---|---|
-| Fig. 1 | SEA-AD snRNA PTGDS phase boundary (A–D) | `Fig1_SEA-AD/Figure1_panels.R` → `figures/Figure1_ABCD.png` |
-| Fig. 2 | Cross-species conservation | (external) |
+| Fig. 1 | SEA-AD snRNA PTGDS biphasic trajectory & inflection (A–D) | `Fig1_SEA-AD/Figure1_panels.R` → `figures/Figure1_ABCD.png` |
+| Fig. 2 | Cross-species validation (zebrafish, murine) | (external) |
 | Fig. 3 | ADNI CSF concordance | `Fig5_ADNI/Fig5_CSF_concordance.R` → `figures/Fig3_CSF_concordance.png` |
 | Fig. 4 | Network pharmacology / docking | (external) |
 | Fig. 5 | BXP-101 murine rescue | (external) |
@@ -149,10 +133,12 @@ Code: [MIT](https://opensource.org/licenses/MIT). Zebrafish data: CC BY 4.0.
 
 ## Citation
 
+If you use this code or data, please cite:
+
 ```
-Kim Y*, Heo W†, Park S†, et al. (2025).
-An astrocytic PTGDS inflection defines a phase boundary in MCI-to-AD progression.
-bioRxiv. https://doi.org/[TO_BE_INSERTED]
+Kim Y, Heo W, Park SJ, et al. (2025).
+A biphasic astrocytic PTGDS trajectory marks a metabolic vulnerability stage in prodromal Alzheimer’s disease.
+Manuscript under review.
 ```
 
 ## Contact
