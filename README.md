@@ -1,4 +1,4 @@
-# Multi-faceted research platform for MCI-to-AD progression: integrating data from zebrafish, mouse models, and human patient cohorts
+# A biphasic astrocytic PTGDS trajectory marks a metabolic vulnerability stage in prodromal Alzheimer’s disease
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![R version](https://img.shields.io/badge/R-4.3.2-276DC3)](https://www.r-project.org/)
@@ -7,9 +7,10 @@
 
 ## Authors
 
-**Youngouk Kim**¹†\*, **Woomyung Heo**¹†, **Sejin Park**¹†, and colleagues
+**Youngouk Kim**¹†\*, **Woomyung Heo**¹†, **Sejin Park**²†, and colleagues
 
 ¹ BioXP Research Institute, Donghae, Gangwon-do, Republic of Korea
+² Department of Food Biotechnology and Environmental Science, Kangwon National University, Chuncheon 24341, Republic of Korea
 † Co-first authors  · \* Corresponding author
 
 ---
