@@ -96,7 +96,7 @@ W   <- 14
 H   <- 18
 DPI <- 300
 
-tmp_tiff <- file.path(OUT_DIR, "temp_figS7.tiff")
+tmp_tiff <- file.path(OUT_DIR, "temp_figS3.tiff")
 out_tiff <- file.path(OUT_DIR, "FigS3_final.tiff")
 out_png  <- file.path(OUT_DIR, "FigS3_final.png")
 

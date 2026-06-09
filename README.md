@@ -40,7 +40,6 @@ MCI-to-AD/
 │   │   ├── 01_SEAAD_data_extraction.R
 │   │   ├── 02_SEAAD_trajectory_analysis.R
 │   │   ├── 02b_SEAAD_supplementary_tables.R
-│   │   ├── FigS2_PTGDS_biphasic_validation.R
 │   │   ├── Figure1_panels.R
 │   │   └── README.md
 │   ├── Fig2_zebrafish/                  # Fig. 2 — reversible zebrafish MCI model
@@ -73,7 +72,7 @@ MCI-to-AD/
 │       └── Tables_main_and_S1_S4.R
 │
 ├── data/
-│   ├── SEA-AD/                          # derived donor-level CSVs (age_cps_donor.csv, FigS1/FigS4 means)
+│   ├── SEA-AD/                          # derived donor-level CSVs (age_cps_donor.csv; FigS1, FigS6 means)
 │   ├── ADNI/                            # de-identified group-level summary CSVs (cross-platform)
 │   ├── murine/                          # murine_behavioral_molecular_data.xlsx
 │   ├── zebrafish/                       # raw 14/21 dpf behavior, qPCR, ELISA, WIF (+ README)
