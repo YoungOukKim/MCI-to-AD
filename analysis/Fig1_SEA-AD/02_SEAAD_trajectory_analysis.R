@@ -7,9 +7,9 @@
 # Outputs → Paper tables
 #   output/Table1_3binMA_Full.csv          → Table 1 (main text, full)
 #   output/Table1_Paper_Summary.csv        → Table 1 (Bins 0.1 / 0.6 / 0.9)
-#   output/Table2_Inflection_CCF.csv       → Table 2 (main text, inflection window)
-#   output/TableS1_Raw_PerBin.csv          → Additional file 1: Table S1
-#   output/TableS4_FullTrajectory_CCF.csv  → Additional file 1: Table S4
+#   output/Table3_Inflection_CCF.csv       → Table 3 (main text, inflection window CCF)
+#   output/TableS4_Raw_PerBin.csv          → Supplementary Table S4
+#   output/TableS6_FullTrajectory_CCF.csv  → Supplementary Table S6
 #
 # Methods
 #   Gene expression trajectories were smoothed using a 3-bin centered moving
@@ -89,13 +89,13 @@ smoothed[, (ma_cols) := lapply(.SD, apply_3bin_ma),
          by = group, .SDcols = analysis_genes]
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 2. TABLE S1 — Raw bin-resolved expression
+# 2. TABLE S4 — Raw bin-resolved expression
 # ══════════════════════════════════════════════════════════════════════════════
-message(">>> Generating Table S1 (raw per-bin expression)...")
+message(">>> Generating Table S4 (raw per-bin expression)...")
 
 table_s1 <- raw_means[, .(bin, group, n_cells,
                            NDUFS1, PTGDS, LCN2, NGFR, APOE)]
-write.csv(table_s1, file.path(OUT_DIR, "TableS1_Raw_PerBin.csv"), row.names = FALSE)
+write.csv(table_s1, file.path(OUT_DIR, "TableS4_Raw_PerBin.csv"), row.names = FALSE)
 
 astro_raw <- table_s1[group == "Astrocyte"]
 message(sprintf("  PTGDS raw peak: Bin %.1f = %.4f",
@@ -170,9 +170,9 @@ a_s[, Purin_ma := rowMeans(.SD), .SDcols = c("P2RY1_ma", "P2RY12_ma",
                                               "GJA1_ma", "ITPR2_ma")]
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 6. TABLE S4 — Full trajectory CCF (9 bins, lag.max = 3)
+# 6. TABLE S6 — Full trajectory CCF (9 bins, lag.max = 3)
 # ══════════════════════════════════════════════════════════════════════════════
-message(">>> Generating Table S4 (full trajectory CCF, 9 bins, lag.max = 3)...")
+message(">>> Generating Table S6 (full trajectory CCF, 9 bins, lag.max = 3)...")
 
 pair_labels <- c(
   "NDUFS1 (Neuron) -> PTGDS (Astrocyte)",
@@ -205,16 +205,16 @@ res_s4[, Cell_Type := cell_labels]
 res_s4[, Sig       := sig_label(p_val)]
 setcolorder(res_s4, c("Pair", "Cell_Type", "Lag", "r", "p_val", "Sig", "n_eff"))
 
-message("  Table S4:")
+message("  Table S6:")
 print(res_s4)
-write.csv(res_s4, file.path(OUT_DIR, "TableS4_FullTrajectory_CCF.csv"),
+write.csv(res_s4, file.path(OUT_DIR, "TableS6_FullTrajectory_CCF.csv"),
           row.names = FALSE)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 7. TABLE 2 — Inflection window CCF (Bins 0.4–0.8, lag.max = 2)
+# 7. TABLE 3 — Inflection window CCF (Bins 0.4–0.8, lag.max = 2)
 #    Methods: "Lagged cross-correlations within the inflection window (Bins 0.4–0.8)"
 # ══════════════════════════════════════════════════════════════════════════════
-message(">>> Generating Table 2 (inflection window CCF, Bins 0.4–0.8, lag.max = 2)...")
+message(">>> Generating Table 3 (inflection window CCF, Bins 0.4–0.8, lag.max = 2)...")
 
 cp_bins <- c(0.4, 0.5, 0.6, 0.7, 0.8)
 a_cp <- a_s[bin %in% cp_bins]
@@ -249,9 +249,9 @@ res_t2[, Cell_Type := c(
 res_t2[, Sig := sig_label(p_val)]
 setcolorder(res_t2, c("Pair", "Cell_Type", "Lag", "r", "p_val", "Sig", "n_eff"))
 
-message("  Table 2 (inflection window, Bins 0.4–0.8):")
+message("  Table 3 (inflection window, Bins 0.4–0.8):")
 print(res_t2)
-write.csv(res_t2, file.path(OUT_DIR, "Table2_Inflection_CCF.csv"), row.names = FALSE)
+write.csv(res_t2, file.path(OUT_DIR, "Table3_Inflection_CCF.csv"), row.names = FALSE)
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 8. Summary
@@ -259,11 +259,11 @@ write.csv(res_t2, file.path(OUT_DIR, "Table2_Inflection_CCF.csv"), row.names = F
 message("\n", strrep("=", 65))
 message("  Output files  →  Paper tables")
 message(strrep("=", 65))
-message("  TableS1_Raw_PerBin.csv          →  Additional file 1: Table S1")
+message("  TableS4_Raw_PerBin.csv          →  Supplementary Table S4")
 message("  Table1_3binMA_Full.csv          →  Table 1 (full, 9 bins)")
 message("  Table1_Paper_Summary.csv        →  Table 1 (Bins 0.1 / 0.6 / 0.9)")
-message("  Table2_Inflection_CCF.csv       →  Table 2")
-message("  TableS4_FullTrajectory_CCF.csv  →  Additional file 1: Table S4")
+message("  Table3_Inflection_CCF.csv       →  Table 3")
+message("  TableS6_FullTrajectory_CCF.csv  →  Supplementary Table S6")
 message(strrep("=", 65))
 message(">>> Script 02 complete.")
 message("    Next: Rscript analysis/Fig1_SEA-AD/02b_SEAAD_supplementary_tables.R")
