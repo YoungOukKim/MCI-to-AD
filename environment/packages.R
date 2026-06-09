@@ -14,7 +14,7 @@
 # ── CRAN packages ─────────────────────────────────────────────────────────────
 cran_pkgs <- c(
   # Data wrangling
-  "data.table",   # fast data manipulation (Scripts 01, 02, 02b, 04)
+  "data.table",   # fast data manipulation (Scripts 01, 02, 04)
   "dplyr",        # tidyverse grammar (Scripts 02, 03)
   "tidyverse",    # ggplot2, readr, tidyr, purrr, stringr (Script 03)
   "lubridate",    # date handling (Script 03)

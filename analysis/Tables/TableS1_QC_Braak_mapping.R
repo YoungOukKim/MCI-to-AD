@@ -1,36 +1,36 @@
 # ==============================================================================
-# TableS7_QC_Braak_mapping.R
+# TableS1_QC_Braak_mapping.R
 #
-# Purpose : Generate Additional file 1: Table S7
+# Purpose : Generate Supplementary Table S1
 #           Quality control metrics and bin-to-Braak stage mapping
 #
-# Outputs (3 CSV files, all → Table S7 in paper)
-#   output/tables/TableS7_A_Bin_CellType_Counts.csv
+# Outputs (3 CSV files, all → Supplementary Table S1 in paper)
+#   output/tables/TableS1_A_Bin_CellType_Counts.csv
 #     Part A: Bin-resolved cell type counts (Astrocyte / Exc.Neuron /
 #             SST+Neuron / Microglia) across CPS Bins 0.1-0.9
-#   output/tables/TableS7_B_QC_Criteria.csv
+#   output/tables/TableS1_B_QC_Criteria.csv
 #     Part B: QC parameters applied during SEA-AD processing
 #             (min genes, mito%, doublet removal, atlas version, etc.)
-#   output/tables/TableS7_C_Braak_Summary.csv
+#   output/tables/TableS1_C_Braak_Summary.csv
 #     Part C: Heuristic CPS-to-Braak stage mapping
 #             Bin 0.1-0.3 ~ Braak I-II | 0.4-0.6 ~ III-IV | 0.7-0.9 ~ V-VI
 #
-# Matches Supp caption (Table S7):
+# Matches Supp caption (Table S1):
 #   "A. Bin-resolved cell type counts across pseudo-progression.
 #    B. QC metrics. C. CPS-to-Braak stage mapping."
 #
 # Methods reference:
 #   "Quality control metrics and bin-to-Braak stage mapping are detailed
-#    in Additional file 1: Table S7."
+#    in Supplementary Table S1."
 #   "CPS bins were approximately aligned with Braak stages. This mapping
 #    is heuristic and does not imply direct pathological equivalence."
 #
 # Input   : output/SEAAD_processed_data.RData  (from 01_SEAAD_data_extraction.R)
 #           H5AD_PATH env var (optional, for reading live QC metrics)
-# Output  : output/tables/TableS7_*.csv
+# Output  : output/tables/TableS1_*.csv
 #
 # Paper: Kim Y et al. (2026). Research Square. https://doi.org/10.21203/rs.3.rs-9499795 https://github.com/YoungOukKim/MCI-to-AD
-# Usage: Rscript analysis/Tables/TableS7_QC_Braak_mapping.R
+# Usage: Rscript analysis/Tables/TableS1_QC_Braak_mapping.R
 # Requirements: R >= 4.3.2 | data.table, rhdf5 (optional for live QC)
 # ==============================================================================
 
@@ -56,7 +56,7 @@ message(sprintf("  Cell types: %s", paste(unique(df$cell_type_label), collapse="
 
 # ==============================================================================
 # 2. Part A: Bin-resolved cell type counts
-#    Matches Table S7 columns: CPS_Bin | Astrocyte | Exc.Neuron |
+#    Matches Supplementary Table S1 columns: CPS_Bin | Astrocyte | Exc.Neuron |
 #                               SST+Neuron | Microglia | Subtotal | Total | Braak
 # ==============================================================================
 message(">>> Part A: Bin-resolved cell type counts...")
@@ -95,11 +95,11 @@ counts_wide[, Approx_Braak := fcase(
   CPS_Bin <= 0.9, "~V-VI (Dementia)"
 )]
 
-message("  Table S7-A:")
+message("  Table S1-A:")
 print(counts_wide)
 
 write.csv(counts_wide,
-          file.path(OUT_DIR, "TableS7_A_Bin_CellType_Counts.csv"),
+          file.path(OUT_DIR, "TableS1_A_Bin_CellType_Counts.csv"),
           row.names = FALSE)
 
 # ==============================================================================
@@ -179,10 +179,10 @@ qc_table <- data.table(
   )
 )
 
-message("  Table S7-B (QC criteria):")
+message("  Table S1-B (QC criteria):")
 print(qc_table)
 write.csv(qc_table,
-          file.path(OUT_DIR, "TableS7_B_QC_Criteria.csv"),
+          file.path(OUT_DIR, "TableS1_B_QC_Criteria.csv"),
           row.names = FALSE)
 
 # ==============================================================================
@@ -205,17 +205,17 @@ braak_summary[, Note := c(
   "Dementia; CPS 0.7-0.9"
 )]
 
-message("  Table S7-C (Braak summary):")
+message("  Table S1-C (Braak summary):")
 print(braak_summary)
 write.csv(braak_summary,
-          file.path(OUT_DIR, "TableS7_C_Braak_Summary.csv"),
+          file.path(OUT_DIR, "TableS1_C_Braak_Summary.csv"),
           row.names = FALSE)
 
 # ==============================================================================
 # 5. Summary
 # ==============================================================================
 cat("\n", strrep("=", 65), "\n")
-cat("  Table S7 — QC metrics and bin-to-Braak stage mapping\n")
+cat("  Supplementary Table S1 — QC metrics and bin-to-Braak stage mapping\n")
 cat(strrep("=", 65), "\n")
 cat("\n  Part A: Bin-resolved cell type counts\n")
 for (i in seq_len(nrow(counts_wide))) {
@@ -239,4 +239,4 @@ cat("  Bin 0.7-0.9  ->  ~Braak V-VI   (Dementia)\n")
 cat("  Note: ~ denotes approximate correspondence.\n")
 cat("        CPS is transcriptomic, not neuropathological.\n")
 cat(strrep("=", 65), "\n")
-message(">>> Script TableS7 complete.")
+message(">>> Script TableS1 complete.")

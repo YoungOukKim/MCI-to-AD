@@ -39,7 +39,6 @@ MCI-to-AD/
 │   ├── Fig1_SEA-AD/                     # Fig. 1 — SEA-AD snRNA-seq PTGDS trajectories
 │   │   ├── 01_SEAAD_data_extraction.R
 │   │   ├── 02_SEAAD_trajectory_analysis.R
-│   │   ├── 02b_SEAAD_supplementary_tables.R
 │   │   ├── Figure1_panels.R
 │   │   └── README.md
 │   ├── Fig2_zebrafish/                  # Fig. 2 — reversible zebrafish MCI model
@@ -68,7 +67,7 @@ MCI-to-AD/
 │   │   ├── P1_age_cps.R                           # Supp. Fig. S8 (age–CPS)
 │   │   └── README.md
 │   └── Tables/
-│       ├── TableS7_QC_Braak_mapping.R
+│       ├── TableS1_QC_Braak_mapping.R
 │       └── Tables_main_and_S1_S4.R
 │
 ├── data/

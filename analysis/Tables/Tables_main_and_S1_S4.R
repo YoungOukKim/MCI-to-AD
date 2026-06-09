@@ -12,10 +12,10 @@
 #     Table3_Inflection_CCF.csv             → Table 3 (inflection window CCF)
 #
 #   Supplementary:
-#     TableS4_Full_Trajectories.csv          → Additional file 1: Table S4
-#     TableS5_Apoptotic_Identity_Markers.csv → Additional file 1: Table S5
-#     TableS6_Full_Trajectory_CCF.csv        → Additional file 1: Table S6
-#     TableS7_Neuronal_Subtype_Vuln.csv      → Additional file 1: Table S7
+#     TableS4_Full_Trajectories.csv          → Supplementary Table S4
+#     TableS5_Apoptotic_Identity_Markers.csv → Supplementary Table S5
+#     TableS6_Full_Trajectory_CCF.csv        → Supplementary Table S6
+#     TableS7_Neuronal_Subtype_Vuln.csv      → Supplementary Table S7
 #
 # Key verified values (v3)
 #   Table 1 : PTGDS peak near CPS 0.47 (vertex from quadratic model)
@@ -277,7 +277,7 @@ write.csv(table3, file.path(OUT_DIR,"Table3_Inflection_CCF.csv"), row.names=FALS
 # ==============================================================================
 # 6. TABLE S1 — Full trajectories (all 9 bins, 3-bin MA)
 # ==============================================================================
-message(">>> Generating Table S1...")
+message(">>> Generating Supplementary Table S4...")
 
 supp_s1 <- data.table(
   Bin         = a_s$bin,
@@ -293,12 +293,12 @@ supp_s1 <- data.table(
   CLU_A       = a_s$CLU_ma
 )
 write.csv(supp_s1, file.path(OUT_DIR,"TableS4_Full_Trajectories.csv"), row.names=FALSE)
-message(sprintf("  TableS1: %d rows", nrow(supp_s1)))
+message(sprintf("  TableS4: %d rows", nrow(supp_s1)))
 
 # ==============================================================================
 # 7. TABLE S2 — Spearman correlations with CPS in astrocytes
 # ==============================================================================
-message(">>> Generating Table S2...")
+message(">>> Generating Supplementary Table S5...")
 
 # Donor-level pseudobulk (n~84 donors). Cell-level cor.test on
 # donor is the unit of analysis.
@@ -328,12 +328,12 @@ supp_s2 <- rbindlist(lapply(s2_genes, function(item) {
 # Multiple-testing: only BCL2 survives BH/Bonferroni; CASP3/AQP4 nominal.
 
 write.csv(supp_s2, file.path(OUT_DIR,"TableS5_Apoptotic_Identity_Markers.csv"), row.names=FALSE)
-message("  TableS2 (donor-level):"); print(supp_s2)
+message("  TableS5 (donor-level):"); print(supp_s2)
 
 # ==============================================================================
 # 8. TABLE S3 — Full trajectory CCF (9 bins, lag.max=3)
 # ==============================================================================
-message(">>> Generating Table S3...")
+message(">>> Generating Supplementary Table S6...")
 
 # LCN2 pairs excluded (0.007% detection); see note above.
 pairs_s3 <- list(
@@ -352,12 +352,12 @@ supp_s3 <- rbindlist(lapply(pairs_s3, function(p) {
 }))
 
 write.csv(supp_s3, file.path(OUT_DIR,"TableS6_Full_Trajectory_CCF.csv"), row.names=FALSE)
-message("  TableS3:"); print(supp_s3)
+message("  TableS6:"); print(supp_s3)
 
 # ==============================================================================
 # 9. TABLE S4 — Neuronal subtype vulnerability
 # ==============================================================================
-message(">>> Generating Table S4...")
+message(">>> Generating Supplementary Table S7...")
 
 vuln_genes <- intersect(c("NDUFS1","NGFR","BCL2","BAX","CASP3"), colnames(df))
 
@@ -404,7 +404,7 @@ supp_s4 <- merge(supp_s4, prop[,.(bin_rounded,total,SST_pct,Exc_pct)],
                  by="bin_rounded", all.x=TRUE)
 
 write.csv(supp_s4, file.path(OUT_DIR,"TableS7_Neuronal_Subtype_Vuln.csv"), row.names=FALSE)
-message(sprintf("  TableS4: %d rows, subtypes: %s",
+message(sprintf("  TableS7: %d rows, subtypes: %s",
                 nrow(supp_s4), paste(unique(supp_s4$subtype),collapse=",")))
 
 # SST proportion report (verify against Supp caption: 11.24% -> 5.49%)
