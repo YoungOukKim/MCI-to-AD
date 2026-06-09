@@ -1,79 +1,37 @@
-# Supplementary Figures — Analysis Scripts
+# Supplementary Figures (S1–S8)
 
-R scripts for generating Supplementary Figures.
+Scripts in this folder are named by their **final manuscript supplementary figure
+number**. Each reads openly shareable derived/summary data from `data/` and
+writes to `output/FigS#/`.
 
----
+| Script | Supp. Fig. | Description | Data |
+|--------|:---:|-------------|------|
+| `FigS1_PTGDS_inflection_validation.R` | **S1** | Statistical validation of the biphasic PTGDS trajectory and inflection point (raw, 3-bin MA, LOESS, segmented) | `data/SEA-AD/FigS1_bin_means.csv` |
+| `FigS2_module_trajectories.R` | **S2** | Module-level astrocyte–neuron cascade in SEA-AD pseudo-progression | `data/SEA-AD/` |
+| `FigS3_compound_characterization.R` | **S3** | Chemical standardization of BXP-101 (HPLC-DAD chromatograms, structures) | `data/FigS3/` |
+| `FigS4_BV2_microglial_assay.R` | **S4** | In vitro BV-2 microglia validation of BXP-101 (non-cytotoxic anti-inflammatory synergy) | `data/FigS4/` |
+| `FigS5_PTGDS_conservation.R` | **S5** | PTGDS evolutionary conservation and structural homology (MSA, structure, NF-κB RELA) | `data/FigS5/` |
+| `FigS6_neuronal_subtypes.R` | **S6** | Differential neuronal-subtype vulnerability and apoptotic buffering | `data/SEA-AD/FigS6_*.csv` |
+| `FigS7_ADNI_CSF_crossplatform.R` | **S7** | Cross-platform CSF biomarker comparison (ADNI; TMT-MS vs SomaScan) | `data/ADNI/` |
+| `P1_age_cps.R` | **S8** | Donor age at death vs pseudo-progression (CPS) — not correlated | `data/SEA-AD/age_cps_donor.csv` |
 
-## Scripts
+## Key results referenced
 
-| Script | Figure | Description |
-|--------|--------|-------------|
-| `FigS1_PTGDS_inflection_validation.R` | Fig. S1 | Statistical validation of the biphasic PTGDS trajectory (segmented regression, LOESS, Davies' test) |
-| `FigS2_module_trajectories.R`         | Fig. S2 | Module-level trajectory analysis (Purinergic/Ca²⁺, NF-κB, IEG, Ferroptosis vs PTGDS/NDUFS1) |
-| `FigS3_PTGDS_conservation.R`          | Fig. S5 | Cross-species PTGDS conservation and NF-κB binding affinity (human, zebrafish) |
-| `FigS4_neuronal_subtypes.R`           | Fig. S6 | Differential vulnerability across neuronal subtypes (excitatory vs SST+) |
-| `FigS5_BV2_microglial_assay.R`        | Fig. S4 | BV-2 microglial assay (cell viability, NO production, NF-κB activation) |
-| `FigS7_compound_characterization.R`   | Fig. S3 | HPLC chromatograms and chemical structures (atractylodin, wedelolactone, honokiol) |
-| `FigureS7_ADNI_CSF_crossplatform.R`   | Fig. S7 | Cross-platform CSF comparison in ADNI (between-platform r ≈ 0.15 for PTGDS) |
-
-> **Note on figure numbering:** script and data-file prefixes (`FigS3`, `FigS4`,
-> `FigS5`, `FigS7`) are **legacy identifiers from earlier drafts** and do NOT match
-> the published Supplementary Figure numbers. Authoritative mapping (script → paper):
-> `FigS3_PTGDS_conservation` → **S5**; `FigS4_neuronal_subtypes` → **S6**;
-> `FigS5_BV2_microglial_assay` → **S4**; `FigS7_compound_characterization` → **S3**;
-> `FigureS7_ADNI_CSF_crossplatform` → **S7**. `FigS1`/`FigS2` are unchanged.
-
----
-
-## Data Notes
-
-### Fig. S1 — SEA-AD bin-level summary
-`SEAAD_processed_data.RData` (~1.3M nuclei) cannot be redistributed under the
-[Allen Brain Atlas data use policy](https://portal.brain-map.org/explore/policies).
-A pre-computed summary is provided in `data/SEA-AD/FigS1_bin_means.csv` (9 rows).
-To regenerate: download the H5AD from the
-[Allen Brain Cell Atlas](https://portal.brain-map.org/atlases-and-data/rnaseq/human-mtg-10x_sea-ad),
-run `analysis/Fig1_SEA-AD/01_SEAAD_data_extraction.R`, then enable the
-`write.csv()` step in `FigS1_PTGDS_inflection_validation.R`.
-
-### Fig. S2 — SEA-AD H5AD direct
-Reads directly from the SEA-AD H5AD file (set via the `SEAAD_H5AD` env variable).
-
-### Fig. S5 (PTGDS conservation) — External images
-Place `FigS3A.png` and `FigS3B.png` in `data/FigS3/` (legacy `FigS3` prefix).
-
-### Fig. S6 (neuronal subtypes) — SEA-AD summary CSVs
-Pre-computed CSVs in `data/SEA-AD/`: `FigS4_proportions.csv`,
-`FigS4_variance.csv`, `FigS4_bcl2.csv`, `FigS4_ratio.csv`.
-
-### Fig. S4 (BV-2 microglial assay) — External images
-Place `FigS5A.png` through `FigS5H.png` in `data/FigS5/` (legacy `FigS5` prefix).
-
-### Fig. S7 (CSF cross-platform) — ADNI summary CSVs
-Raw ADNI data cannot be redistributed under the
-[ADNI data use agreement](https://adni.loni.usc.edu).
-Pre-computed, de-identified group-level CSVs in `data/ADNI/`:
-`FigS6_platform_cor.csv`, `FigS6_trend.csv`, `FigS6_tmt_ptgds.csv`.
-(The `FigS6_` filename prefix is retained only as a stable data-file identifier.)
-
-### Fig. S3 (compound characterization / HPLC) — External images
-Place 6 images in `data/FigS7/`:
-`FigS7A_atractylodin_peak.png`, `FigS7A_atractylodin_chem.png`,
-`FigS7B_wedelolactone_peak.png`, `FigS7B_wedelolactone_chem.png`,
-`FigS7C_honokiol_peak.png`, `FigS7C_honokiol_chem.png`.
-
----
+- **S1:** inflection breakpoint Bin ≈ 0.23 (95% CI 0.13–0.33; Davies' p = 0.032)
+- **S5:** ptgdsb.1 vs human PTGDS 85.6% identity; RMSD < 1.3 Å; NF-κB RELA motifs conserved
+- **S8:** Spearman ρ = −0.14 (p = 0.19, n = 84) — CPS is not an age proxy
 
 ## Usage
 
 ```r
-Rscript analysis/FigS/FigS1_PTGDS_inflection_validation.R
-Rscript analysis/FigS/FigS2_module_trajectories.R
-Rscript analysis/FigS/FigS3_PTGDS_conservation.R
-Rscript analysis/FigS/FigS4_neuronal_subtypes.R
-Rscript analysis/FigS/FigS5_BV2_microglial_assay.R
-Rscript analysis/FigS/FigS7_compound_characterization.R
-Rscript analysis/FigS/FigureS7_ADNI_CSF_crossplatform.R
+# example: Supplementary Fig. S8 (donor-level age vs CPS)
+source("analysis/FigS/P1_age_cps.R")
 ```
 
-Output paths can be overridden via environment variables (see each script header).
+Each script reads its data path from an environment variable (default shown in
+the script header) and writes to `output/FigS#/`.
+
+> **Note:** `FigS7_ADNI_CSF_crossplatform.R` (Supp. Fig. S7) currently reads its
+> cross-platform CSV inputs from `data/ADNI/FigS6_*.csv` — a legacy data-file
+> prefix that does not match the figure number. The script is correct; only the
+> input CSV names are mislabeled and can be normalized in a later pass.

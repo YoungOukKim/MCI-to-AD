@@ -1,5 +1,5 @@
 # ==============================================================================
-# FigureS7_ADNI_CSF_crossplatform.R   (revised layout)
+# FigS7_ADNI_CSF_crossplatform.R   (revised layout)
 #
 # Purpose : Generate Figure S7 - Cross-platform validation of PTGDS/LCN2/NEFL
 #           dynamics in ADNI CSF proteomics (TMT-MS and SomaScan 7K).
@@ -14,8 +14,8 @@
 #       n and Pearson r are computed from the data (not hard-coded).
 #
 # Outputs (-> output/FigS7/):
-#   FigureS7_CSF_crossplatform.png   (300 dpi)
-#   FigureS7_CSF_crossplatform.tiff  (300 dpi, LZW - journal submission)
+#   FigS7_CSF_crossplatform.png   (300 dpi)
+#   FigS7_CSF_crossplatform.tiff  (300 dpi, LZW - journal submission)
 #
 # Data note:
 #   Raw ADNI data (TMT-MS, SomaScan, ADNIMERGE) cannot be redistributed
@@ -26,7 +26,7 @@
 #     FigS6_tmt_ptgds.csv     - Panel C: MMSE, PTGDS_final (per-batch z)
 #
 # Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
-# Usage : Rscript analysis/FigS/FigureS7_ADNI_CSF_crossplatform.R
+# Usage : Rscript analysis/FigS/FigS7_ADNI_CSF_crossplatform.R
 # Requirements : R >= 4.3.2 | tidyverse, ggplot2, cowplot
 # ==============================================================================
 
@@ -145,8 +145,8 @@ W   <- 12
 H   <- 18
 DPI <- 300
 
-out_png  <- file.path(OUT_DIR, "FigureS7_CSF_crossplatform.png")
-out_tiff <- file.path(OUT_DIR, "FigureS7_CSF_crossplatform.tiff")
+out_png  <- file.path(OUT_DIR, "FigS7_CSF_crossplatform.png")
+out_tiff <- file.path(OUT_DIR, "FigS7_CSF_crossplatform.tiff")
 
 ggsave(out_png,  final_plot, width = W, height = H, dpi = DPI, bg = "white")
 ggsave(out_tiff, final_plot, width = W, height = H, dpi = DPI, bg = "white",

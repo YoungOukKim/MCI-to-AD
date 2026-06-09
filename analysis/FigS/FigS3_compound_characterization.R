@@ -1,7 +1,7 @@
 # ==============================================================================
-# FigS7_compound_characterization.R
+# FigS3_compound_characterization.R
 #
-# Purpose : Generate Figure S7 — HPLC chromatograms and chemical structures
+# Purpose : Generate Figure S3 — HPLC chromatograms and chemical structures
 #           of BXP-101 active compounds (Atractylodin, Wedelolactone, Honokiol).
 #
 # Panels:
@@ -9,12 +9,12 @@
 #   B = Wedelolactone: HPLC chromatogram + chemical structure
 #   C = Honokiol: HPLC chromatogram + chemical structure
 #
-# Outputs (-> output/FigS7/):
-#   FigS7_final.png   (300 dpi)
-#   FigS7_final.tiff  (300 dpi, LZW — journal submission)
+# Outputs (-> output/FigS3/):
+#   FigS3_final.png   (300 dpi)
+#   FigS3_final.tiff  (300 dpi, LZW — journal submission)
 #
 # Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
-# Usage : Rscript analysis/FigS/FigS7_compound_characterization.R
+# Usage : Rscript analysis/FigS/FigS3_compound_characterization.R
 # Requirements : R >= 4.3.2 | ggplot2, cowplot, magick
 # ==============================================================================
 
@@ -27,8 +27,8 @@ suppressPackageStartupMessages({
 # ------------------------------------------------------------------------------
 # Paths (relative to repository root; override with environment variables)
 # ------------------------------------------------------------------------------
-IMG_DIR <- Sys.getenv("FIGS7_IMG", unset = "data/FigS7")
-OUT_DIR <- Sys.getenv("FIGS7_OUT", unset = "output/FigS7")
+IMG_DIR <- Sys.getenv("FIGS3_IMG", unset = "data/FigS3")
+OUT_DIR <- Sys.getenv("FIGS3_OUT", unset = "output/FigS3")
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # ------------------------------------------------------------------------------
@@ -49,12 +49,12 @@ load_img <- function(fname, rotate_90 = FALSE) {
   image_scale(img, "2000x1500!")
 }
 
-img_a_p <- load_img("FigS7A_atractylodin_peak.png")
-img_a_c <- load_img("FigS7A_atractylodin_chem.png")
-img_b_p <- load_img("FigS7B_wedelolactone_peak.png")
-img_b_c <- load_img("FigS7B_wedelolactone_chem.png")
-img_c_p <- load_img("FigS7C_honokiol_peak.png")
-img_c_c <- load_img("FigS7C_honokiol_chem.png", rotate_90 = TRUE)
+img_a_p <- load_img("FigS3A_atractylodin_peak.png")
+img_a_c <- load_img("FigS3A_atractylodin_chem.png")
+img_b_p <- load_img("FigS3B_wedelolactone_peak.png")
+img_b_c <- load_img("FigS3B_wedelolactone_chem.png")
+img_c_p <- load_img("FigS3C_honokiol_peak.png")
+img_c_c <- load_img("FigS3C_honokiol_chem.png", rotate_90 = TRUE)
 
 # ------------------------------------------------------------------------------
 # 2. Assemble layout
@@ -97,8 +97,8 @@ H   <- 18
 DPI <- 300
 
 tmp_tiff <- file.path(OUT_DIR, "temp_figS7.tiff")
-out_tiff <- file.path(OUT_DIR, "FigS7_final.tiff")
-out_png  <- file.path(OUT_DIR, "FigS7_final.png")
+out_tiff <- file.path(OUT_DIR, "FigS3_final.tiff")
+out_png  <- file.path(OUT_DIR, "FigS3_final.png")
 
 ggsave(tmp_tiff, final_labeled,
        width = W, height = H, dpi = DPI, bg = "white",

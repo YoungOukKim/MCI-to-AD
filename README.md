@@ -51,23 +51,22 @@ MCI-to-AD/
 │   │   ├── 03_ADNI_clinical_analysis.R
 │   │   ├── Fig3_CSF_concordance.R
 │   │   └── README.md
-│   ├── Fig4_network_pharmacology/       # Fig. 4 + Supp. Fig. S5 — network pharmacology, docking, PTGDS conservation
+│   ├── Fig4_network_pharmacology/       # Fig. 4 — network pharmacology and in silico docking
 │   │   ├── Fig4_network_pharmacology.R
-│   │   ├── FigS3_PTGDS_conservation.R   # = Supplementary Fig. S5 (legacy FigS3 file prefix)
 │   │   └── README.md
 │   ├── Fig5_murine/                     # Fig. 5 — murine validation
 │   │   ├── Fig5_panels.R
 │   │   ├── Fig5_combine.R
 │   │   └── README.md
-│   ├── FigS/                            # supplementary figure scripts + donor-level age–CPS
-│   │   ├── FigS1_PTGDS_inflection_validation.R
-│   │   ├── FigS2_module_trajectories.R
-│   │   ├── FigS3_PTGDS_conservation.R
-│   │   ├── FigS4_neuronal_subtypes.R
-│   │   ├── FigS5_BV2_microglial_assay.R
-│   │   ├── FigS7_compound_characterization.R
-│   │   ├── FigureS7_ADNI_CSF_crossplatform.R
-│   │   ├── P1_age_cps.R                 # donor-level age–CPS correlation (Supplementary Fig. S8)
+│   ├── FigS/                            # supplementary figures S1–S8
+│   │   ├── FigS1_PTGDS_inflection_validation.R    # Supp. Fig. S1
+│   │   ├── FigS2_module_trajectories.R            # Supp. Fig. S2
+│   │   ├── FigS3_compound_characterization.R      # Supp. Fig. S3 (BXP-101 HPLC)
+│   │   ├── FigS4_BV2_microglial_assay.R           # Supp. Fig. S4
+│   │   ├── FigS5_PTGDS_conservation.R             # Supp. Fig. S5
+│   │   ├── FigS6_neuronal_subtypes.R              # Supp. Fig. S6
+│   │   ├── FigS7_ADNI_CSF_crossplatform.R         # Supp. Fig. S7
+│   │   ├── P1_age_cps.R                           # Supp. Fig. S8 (age–CPS)
 │   │   └── README.md
 │   └── Tables/
 │       ├── TableS7_QC_Braak_mapping.R
@@ -78,7 +77,7 @@ MCI-to-AD/
 │   ├── ADNI/                            # de-identified group-level summary CSVs (cross-platform)
 │   ├── murine/                          # murine_behavioral_molecular_data.xlsx
 │   ├── zebrafish/                       # raw 14/21 dpf behavior, qPCR, ELISA, WIF (+ README)
-│   ├── FigS3/  FigS5/  FigS7/           # supplementary panel source images
+│   ├── FigS3/  FigS4/  FigS5/           # supplementary panel source images (S3 HPLC, S4 BV-2, S5 conservation)
 │   └── NOTE_restricted_data.md          # SEA-AD / ADNI access terms (not redistributable)
 │
 ├── assets/                              # repository cover images
@@ -88,7 +87,7 @@ MCI-to-AD/
 └── output/                              # script-generated tables/figures (created on run)
 ```
 
-> **Manuscript figure mapping:** **Fig. 1** SEA-AD single-nucleus trajectories · **Fig. 2** zebrafish MCI model · **Fig. 3** ADNI CSF concordance · **Fig. 4** network pharmacology and in silico docking · **Fig. 5** murine validation. Analysis folders are named by final manuscript figure number; some supplementary scripts retain a legacy `FigS` file prefix (e.g., `FigS3_PTGDS_conservation.R` corresponds to **Supplementary Fig. S5**).
+> **Manuscript figure mapping:** **Fig. 1** SEA-AD single-nucleus trajectories · **Fig. 2** zebrafish MCI model · **Fig. 3** ADNI CSF concordance · **Fig. 4** network pharmacology and in silico docking · **Fig. 5** murine validation. Analysis folders and supplementary scripts (`analysis/FigS/`, S1–S8) are named by their final manuscript figure number.
 
 ---
 

@@ -1,17 +1,13 @@
-# Fig. 4 & Supplementary Fig. S5 — Network Pharmacology and PTGDS Conservation
-
-## Contents
+# Fig. 4 — Network Pharmacology of BXP-101
 
 | Script | Output | Description |
 |--------|--------|-------------|
 | `Fig4_network_pharmacology.R` | `output/Fig4/` | **Fig. 4A–D**: BXP-101 target network and in silico docking |
-| `FigS3_PTGDS_conservation.R` | `output/FigS3/` | **Supplementary Fig. S5**: PTGDS evolutionary conservation (script/output files keep the legacy `FigS3` prefix — see note below; ⚠ verify panel layout vs current Supp Fig. S5) |
 
-> **Supplementary numbering:** the conservation analysis is **Supplementary Fig. S5** in the manuscript, but its script and output files still carry the legacy `FigS3` prefix. Renaming the `FigS*` files to match the paper's supplementary order is a separate pass and is **not** part of the main Fig. 1–5 renumber.
+> PTGDS evolutionary conservation (**Supplementary Fig. S5**) lives in
+> `analysis/FigS/FigS5_PTGDS_conservation.R`.
 
 ---
-
-## Fig. 4 — Network Pharmacology of BXP-101
 
 ### Panels
 | Panel | Description |
@@ -36,61 +32,17 @@ docking_scores.csv          # AutoDock Vina summary (Compound, Target, PDB, Affi
 
 ---
 
-## Supplementary Fig. S5 — PTGDS Evolutionary Conservation
-
-> ⚠ **Panels:** the panel breakdown below is from an earlier draft layout. Verify against the current Supplementary Fig. S5 (A: MSA alignment; B: structural superimposition/RMSD; C: NF-κB RELA binding affinity) before relying on it.
-
-### Panels (legacy `S3*` labels)
-| Panel | Description |
-|-------|-------------|
-| S3A | Phylogenetic tree — ptgdsb.1/2 (zebrafish), PTGDS (human), Ptgds (mouse) |
-| S3B | Protein domain structure — Lipocalin domain (IPR022271), catalytic residues |
-| S3C | NF-κB (RELA) binding motifs in promoters |
-| S3D | Pairwise amino acid identity heatmap (BLASTP) |
-
-### Key results (paper)
-- ptgdsb.1 vs human PTGDS: **85.6% amino acid identity**
-- Structural homology: **RMSD < 1.3 Å** (AlphaFold2 models)
-- Lipocalin domain (IPR022271): conserved across all 4 species
-- NF-κB motifs: PTGDS promoter n=7, LCN2 promoter n=5, ptgdsb.1 n=5
-
-### Upstream tools
-| Step | Tool | URL |
-|------|------|-----|
-| Sequences | NCBI Entrez | Gene IDs: 336492, 558122, 5730, 19215 |
-| Alignment | MAFFT --auto | https://mafft.cbrc.jp |
-| Phylogeny | IQ-TREE -m TEST -bb 1000 | https://iqtree.org |
-| Domains | InterProScan IPR022271 | https://www.ebi.ac.uk/interpro |
-| Motifs | JASPAR MA0107.1 (RELA), ≥80% | https://jaspar.genereg.net |
-
-### Required data files (`data/conservation/`)
-```
-aligned.fasta.treefile      # IQ-TREE output (Newick format)
-```
-> S3B–D panels use values hard-coded from paper results and
-> do not require additional input files.
-
----
-
 ## Usage
 
 ```r
-# Fig. 4 (network pharmacology)
 Sys.setenv(NET_DATA = "data/network_pharmacology")
 Sys.setenv(FIG4_OUT = "output/Fig4")
 source("analysis/Fig4_network_pharmacology/Fig4_network_pharmacology.R")
-
-# Supplementary Fig. S5 (PTGDS conservation; files keep legacy FigS3 prefix)
-Sys.setenv(CONSERVATION_DATA = "data/conservation")
-Sys.setenv(FIGS3_OUT         = "output/FigS3")
-source("analysis/Fig4_network_pharmacology/FigS3_PTGDS_conservation.R")
 ```
 
 ## R package requirements
 
 ```r
 install.packages(c("ggplot2","dplyr","readr","tidyr",
-                   "ggVennDiagram","igraph","ggraph","ape"))
-# Bioconductor
-BiocManager::install(c("ggtree","Biostrings","ggmsa"))
+                   "ggVennDiagram","igraph","ggraph"))
 ```

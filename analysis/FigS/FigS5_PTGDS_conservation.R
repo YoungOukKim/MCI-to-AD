@@ -1,7 +1,7 @@
 # ==============================================================================
-# FigS3_PTGDS_conservation.R
+# FigS5_PTGDS_conservation.R
 #
-# Purpose : Generate Figure S3 — Cross-species conservation of PTGDS
+# Purpose : Generate Figure S5 — Cross-species conservation of PTGDS
 #           NF-kB binding motif and structural homology analysis.
 #
 # Panels:
@@ -9,12 +9,12 @@
 #   B = Sequence alignment / conservation (external image)
 #   C = NF-kB (RELA) binding affinity scores across species (bar chart)
 #
-# Outputs (-> output/FigS3/):
-#   FigS3_final.png   (300 dpi)
-#   FigS3_final.tiff  (300 dpi, LZW — journal submission)
+# Outputs (-> output/FigS5/):
+#   FigS5_final.png   (300 dpi)
+#   FigS5_final.tiff  (300 dpi, LZW — journal submission)
 #
 # Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
-# Usage : Rscript analysis/FigS/FigS3_PTGDS_conservation.R
+# Usage : Rscript analysis/FigS/FigS5_PTGDS_conservation.R
 # Requirements : R >= 4.3.2 | ggplot2, cowplot, magick
 # ==============================================================================
 
@@ -27,10 +27,10 @@ suppressPackageStartupMessages({
 # ------------------------------------------------------------------------------
 # Paths (relative to repository root; override with environment variables)
 # ------------------------------------------------------------------------------
-IMG_DIR <- Sys.getenv("FIGS3_IMG",
-              unset = "data/FigS3")
-OUT_DIR <- Sys.getenv("FIGS3_OUT",
-              unset = "output/FigS3")
+IMG_DIR <- Sys.getenv("FIGS5_IMG",
+              unset = "data/FigS5")
+OUT_DIR <- Sys.getenv("FIGS5_OUT",
+              unset = "output/FigS5")
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # ------------------------------------------------------------------------------
@@ -38,8 +38,8 @@ dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 # ------------------------------------------------------------------------------
 message(">>> [1/3] Loading images...")
 
-img_a <- image_trim(image_read(file.path(IMG_DIR, "FigS3A.png")))
-img_b <- image_trim(image_read(file.path(IMG_DIR, "FigS3B.png")))
+img_a <- image_trim(image_read(file.path(IMG_DIR, "FigS5A.png")))
+img_b <- image_trim(image_read(file.path(IMG_DIR, "FigS5B.png")))
 
 # ------------------------------------------------------------------------------
 # 2. Panel C — NF-kB (RELA) binding affinity scores
@@ -97,8 +97,8 @@ W   <- 18
 H   <- 10
 DPI <- 300
 
-out_png  <- file.path(OUT_DIR, "FigS3_final.png")
-out_tiff <- file.path(OUT_DIR, "FigS3_final.tiff")
+out_png  <- file.path(OUT_DIR, "FigS5_final.png")
+out_tiff <- file.path(OUT_DIR, "FigS5_final.tiff")
 
 ggsave(out_png,  final_plot,
        width = W, height = H, dpi = DPI, bg = "white")

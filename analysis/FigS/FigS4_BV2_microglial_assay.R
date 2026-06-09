@@ -1,7 +1,7 @@
 # ==============================================================================
-# FigS5_BV2_microglial_assay.R
+# FigS4_BV2_microglial_assay.R
 #
-# Purpose : Generate Figure S5 — BV-2 microglial assay results
+# Purpose : Generate Figure S4 — BV-2 microglial assay results
 #           Cell viability, nitric oxide production, and NF-kB activation
 #           in response to BXP-101 treatment.
 #
@@ -11,12 +11,12 @@
 #   G   = Row 3 (full width)
 #   H   = Row 4 (full width)
 #
-# Outputs (-> output/FigS5/):
-#   FigS5_final.png   (300 dpi)
-#   FigS5_final.tiff  (300 dpi, LZW — journal submission)
+# Outputs (-> output/FigS4/):
+#   FigS4_final.png   (300 dpi)
+#   FigS4_final.tiff  (300 dpi, LZW — journal submission)
 #
 # Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
-# Usage : Rscript analysis/FigS/FigS5_BV2_microglial_assay.R
+# Usage : Rscript analysis/FigS/FigS4_BV2_microglial_assay.R
 # Requirements : R >= 4.3.2 | magick, cowplot, ggplot2, grid
 # ==============================================================================
 
@@ -30,8 +30,8 @@ suppressPackageStartupMessages({
 # ------------------------------------------------------------------------------
 # Paths (relative to repository root; override with environment variables)
 # ------------------------------------------------------------------------------
-IMG_DIR <- Sys.getenv("FIGS5_IMG", unset = "data/FigS5")
-OUT_DIR <- Sys.getenv("FIGS5_OUT", unset = "output/FigS5")
+IMG_DIR <- Sys.getenv("FIGS4_IMG", unset = "data/FigS4")
+OUT_DIR <- Sys.getenv("FIGS4_OUT", unset = "output/FigS4")
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # ------------------------------------------------------------------------------
@@ -48,10 +48,10 @@ load_img <- function(fname) {
   image_trim(image_read(path))
 }
 
-img_a <- load_img("FigS5A.png"); img_b <- load_img("FigS5B.png")
-img_c <- load_img("FigS5C.png"); img_d <- load_img("FigS5D.png")
-img_e <- load_img("FigS5E.png"); img_f <- load_img("FigS5F.png")
-img_g <- load_img("FigS5G.png"); img_h <- load_img("FigS5H.png")
+img_a <- load_img("FigS4A.png"); img_b <- load_img("FigS4B.png")
+img_c <- load_img("FigS4C.png"); img_d <- load_img("FigS4D.png")
+img_e <- load_img("FigS4E.png"); img_f <- load_img("FigS4F.png")
+img_g <- load_img("FigS4G.png"); img_h <- load_img("FigS4H.png")
 
 # ------------------------------------------------------------------------------
 # 2. Assemble layout
@@ -105,8 +105,8 @@ H   <- 16
 DPI <- 300
 
 tmp_tiff <- file.path(OUT_DIR, "temp_figS5.tiff")
-out_tiff <- file.path(OUT_DIR, "FigS5_final.tiff")
-out_png  <- file.path(OUT_DIR, "FigS5_final.png")
+out_tiff <- file.path(OUT_DIR, "FigS4_final.tiff")
+out_png  <- file.path(OUT_DIR, "FigS4_final.png")
 
 ggsave(tmp_tiff, final_labeled,
        width = W, height = H, dpi = DPI, bg = "white",
