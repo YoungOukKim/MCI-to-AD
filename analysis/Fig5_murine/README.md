@@ -1,13 +1,15 @@
-# Fig. 4 — Murine Validation
+# Fig. 5 — Murine Validation
 
-BXP-101 rescues cognitive and molecular phenotypes in Aβ1–42 mice.
+BXP-101, a multi-component NF-κB probe, modulates cognitive and molecular
+phenotypes in an Aβ1–42 mouse model. (Used as a pharmacological probe, not a
+PTGDS-specific intervention; no causal claim for PTGDS is made from these data.)
 
 ## Scripts
 
 | File | Description |
 |------|-------------|
-| `Fig4_panels.R` | Generate individual panels A, B, C, E, F (no labels) |
-| `Fig4_combine.R` | Assemble panels with labels into the final figure |
+| `Fig5_panels.R` | Generate individual panels A, B, C, E, F (no labels) |
+| `Fig5_combine.R` | Assemble panels with labels into the final figure |
 
 ## Data
 
@@ -24,9 +26,9 @@ BXP-101 rescues cognitive and molecular phenotypes in Aβ1–42 mice.
 ## Usage
 ```r
 Sys.setenv(MURINE_DATA = "data/murine/murine_behavioral_molecular_data.xlsx")
-Sys.setenv(FIG4_OUT    = "output/Fig4")
-source("analysis/Fig4_murine/Fig4_panels.R")
-source("analysis/Fig4_murine/Fig4_combine.R")
+Sys.setenv(FIG5_OUT    = "output/Fig5")
+source("analysis/Fig5_murine/Fig5_panels.R")
+source("analysis/Fig5_murine/Fig5_combine.R")
 ```
 
 ## Groups

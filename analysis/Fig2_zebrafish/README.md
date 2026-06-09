@@ -1,6 +1,6 @@
 # Fig. 2 — Zebrafish MCI Model Analysis
 
-Cross-species validation of the PTGDS phase boundary using a reversible
+Cross-species validation of the PTGDS inflection using a reversible
 zebrafish (*Danio rerio*) MCI model and timing-dependent pharmacological rescue.
 
 ---

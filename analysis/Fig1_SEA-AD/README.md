@@ -1,4 +1,4 @@
-# Fig. 1 — SEA-AD snRNA-seq PTGDS Phase Boundary
+# Fig. 1 — SEA-AD snRNA-seq PTGDS Inflection
 
 Generates Figure 1 panels A–D from the SEA-AD snRNA-seq dataset, with
 donor-level statistical validation of the astrocytic PTGDS biphasic trajectory.

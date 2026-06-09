@@ -29,29 +29,66 @@ Alzheimer's disease shows prolonged prodromal stability before accelerating decl
 
 ## Repository structure
 
-> Adjust this section to match the files actually committed (run `git ls-files`).
-
 ```
 MCI-to-AD/
 ├── README.md
-├── LICENSE
+├── LICENSE                              # MIT (code); shared data CC BY 4.0
 ├── .gitignore
 │
-├── data/
-│   └── SEA-AD/
-│       └── age_cps_donor.csv          # Donor-level age vs CPS (n = 84; Supplementary Fig. S8)
-│
 ├── analysis/
-│   └── FigS/
-│       └── P1_age_cps.R               # Donor-level age–CPS correlation + scatter
+│   ├── Fig1_SEA-AD/                     # Fig. 1 — SEA-AD snRNA-seq PTGDS trajectories
+│   │   ├── 01_SEAAD_data_extraction.R
+│   │   ├── 02_SEAAD_trajectory_analysis.R
+│   │   ├── 02b_SEAAD_supplementary_tables.R
+│   │   ├── FigS2_PTGDS_biphasic_validation.R
+│   │   ├── Figure1_panels.R
+│   │   └── README.md
+│   ├── Fig2_zebrafish/                  # Fig. 2 — reversible zebrafish MCI model
+│   │   ├── Fig2A_H_panels.R
+│   │   ├── Fig2_combine.R
+│   │   └── README.md
+│   ├── Fig3_ADNI/                       # Fig. 3 — ADNI CSF concordance (NEFL / LCN2 / PTGDS)
+│   │   ├── 03_ADNI_clinical_analysis.R
+│   │   ├── Fig3_CSF_concordance.R
+│   │   └── README.md
+│   ├── Fig4_network_pharmacology/       # Fig. 4 + Supp. Fig. S5 — network pharmacology, docking, PTGDS conservation
+│   │   ├── Fig4_network_pharmacology.R
+│   │   ├── FigS3_PTGDS_conservation.R   # = Supplementary Fig. S5 (legacy FigS3 file prefix)
+│   │   └── README.md
+│   ├── Fig5_murine/                     # Fig. 5 — murine validation
+│   │   ├── Fig5_panels.R
+│   │   ├── Fig5_combine.R
+│   │   └── README.md
+│   ├── FigS/                            # supplementary figure scripts + donor-level age–CPS
+│   │   ├── FigS1_PTGDS_inflection_validation.R
+│   │   ├── FigS2_module_trajectories.R
+│   │   ├── FigS3_PTGDS_conservation.R
+│   │   ├── FigS4_neuronal_subtypes.R
+│   │   ├── FigS5_BV2_microglial_assay.R
+│   │   ├── FigS7_compound_characterization.R
+│   │   ├── FigureS7_ADNI_CSF_crossplatform.R
+│   │   ├── P1_age_cps.R                 # donor-level age–CPS correlation (Supplementary Fig. S8)
+│   │   └── README.md
+│   └── Tables/
+│       ├── TableS7_QC_Braak_mapping.R
+│       └── Tables_main_and_S1_S4.R
 │
-└── figures/
-    ├── Figure1_ABCD.png               # SEA-AD trajectories; inflection vertex CPS 0.47
-    ├── Fig3_CSF_concordance.png       # ADNI CSF: NEFL / LCN2 / PTGDS vs MMSE
-    └── age_cps_scatter.png            # Age vs CPS (Supplementary Fig. S8)
+├── data/
+│   ├── SEA-AD/                          # derived donor-level CSVs (age_cps_donor.csv, FigS1/FigS4 means)
+│   ├── ADNI/                            # de-identified group-level summary CSVs (cross-platform)
+│   ├── murine/                          # murine_behavioral_molecular_data.xlsx
+│   ├── zebrafish/                       # raw 14/21 dpf behavior, qPCR, ELISA, WIF (+ README)
+│   ├── FigS3/  FigS5/  FigS7/           # supplementary panel source images
+│   └── NOTE_restricted_data.md          # SEA-AD / ADNI access terms (not redistributable)
+│
+├── assets/                              # repository cover images
+├── environment/
+│   └── packages.R                       # R package manifest
+├── figures/                             # assembled manuscript figure outputs
+└── output/                              # script-generated tables/figures (created on run)
 ```
 
-Manuscript figure mapping: **Fig. 1** SEA-AD single-nucleus trajectories · **Fig. 2** zebrafish MCI model · **Fig. 3** ADNI CSF concordance · **Fig. 4** network pharmacology and in silico docking · **Fig. 5** murine validation.
+> **Manuscript figure mapping:** **Fig. 1** SEA-AD single-nucleus trajectories · **Fig. 2** zebrafish MCI model · **Fig. 3** ADNI CSF concordance · **Fig. 4** network pharmacology and in silico docking · **Fig. 5** murine validation. Analysis folders are named by final manuscript figure number; some supplementary scripts retain a legacy `FigS` file prefix (e.g., `FigS3_PTGDS_conservation.R` corresponds to **Supplementary Fig. S5**).
 
 ---
 
@@ -90,12 +127,14 @@ Manuscript figure mapping: **Fig. 1** SEA-AD single-nucleus trajectories · **Fi
 ## Reproducibility
 
 * R version 4.3.2
-* Key packages: `hdf5r`, `segmented`, `ggplot2`, `cowplot`
+* Key packages: `hdf5r`, `segmented`, `ggplot2`, `cowplot` (see `environment/packages.R`)
 
 ```r
 # Donor-level age vs CPS (Supplementary Fig. S8)
 source("analysis/FigS/P1_age_cps.R")
 ```
+
+Each `analysis/` subfolder has its own README describing inputs, outputs, and run order.
 
 ---
 

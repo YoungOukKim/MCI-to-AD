@@ -15,7 +15,7 @@
 #   FigS5_final.png   (300 dpi)
 #   FigS5_final.tiff  (300 dpi, LZW — journal submission)
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
 # Usage : Rscript analysis/FigS/FigS5_BV2_microglial_assay.R
 # Requirements : R >= 4.3.2 | magick, cowplot, ggplot2, grid
 # ==============================================================================

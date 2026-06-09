@@ -1,5 +1,5 @@
 # ==============================================================================
-# Fig4_combine.R
+# Fig5_combine.R
 #
 # Purpose : Assemble individual Fig. 4 panels into final figure with labels.
 #           Panel label size/position follows Fig. 6 convention (size=30, 15in).
@@ -13,10 +13,10 @@
 #   Total                                       h = 22.5
 #
 # Note: Panel D (immunohistochemistry images) must be supplied as
-#       Fig4D_IHC.png in OUT_DIR. A placeholder is shown if missing.
+#       Fig5D_IHC.png in OUT_DIR. A placeholder is shown if missing.
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
-# Usage : Rscript analysis/Fig4_murine/Fig4_combine.R
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
+# Usage : Rscript analysis/Fig5_murine/Fig5_combine.R
 # Requirements: R >= 4.3.2 | cowplot, magick
 # ==============================================================================
 
@@ -28,7 +28,7 @@ suppressPackageStartupMessages({
 # ------------------------------------------------------------------------------
 # Paths
 # ------------------------------------------------------------------------------
-OUT_DIR <- Sys.getenv("FIG4_OUT", unset = "output/Fig4")
+OUT_DIR <- Sys.getenv("FIG5_OUT", unset = "output/Fig5")
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # ------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ load_panel <- function(fname, scale = 0.97) {
     # placeholder
     img <- magick::image_blank(800, 600, color = "white")
     img <- magick::image_annotate(img,
-      paste0("Missing:\n", fname, "\n(run Fig4_panels.R first)"),
+      paste0("Missing:\n", fname, "\n(run Fig5_panels.R first)"),
       color = "gray50", size = 28, gravity = "Center")
     magick::image_write(img, file.path(OUT_DIR, fname))
   }
@@ -53,18 +53,18 @@ make_placeholder <- function(label) {
   img <- magick::image_annotate(img,
     paste0("Panel ", label, "\n(IHC images — supplied separately)"),
     color = "gray60", size = 36, gravity = "Center", font = "bold")
-  magick::image_write(img, file.path(OUT_DIR, paste0("Fig4", label, "_placeholder.png")))
+  magick::image_write(img, file.path(OUT_DIR, paste0("Fig5", label, "_placeholder.png")))
   ggdraw() + draw_image(img, scale = 0.97)
 }
 
 message(">>> Loading panels...")
-pA <- load_panel("Fig4A_ymaze.png")
-pB <- load_panel("Fig4B_PAT.png")
-pC <- load_panel("Fig4C_inflammatory.png")
-pD <- if (file.exists(file.path(OUT_DIR, "Fig4D_IHC.png")))
-        load_panel("Fig4D_IHC.png") else make_placeholder("D")
-pE <- load_panel("Fig4E_trophic.png")
-pF <- load_panel("Fig4F_oxidative.png")
+pA <- load_panel("Fig5A_ymaze.png")
+pB <- load_panel("Fig5B_PAT.png")
+pC <- load_panel("Fig5C_inflammatory.png")
+pD <- if (file.exists(file.path(OUT_DIR, "Fig5D_IHC.png")))
+        load_panel("Fig5D_IHC.png") else make_placeholder("D")
+pE <- load_panel("Fig5E_trophic.png")
+pF <- load_panel("Fig5F_oxidative.png")
 
 # ------------------------------------------------------------------------------
 # Row heights
@@ -84,7 +84,7 @@ row2 <- pC + pad
 row3 <- plot_grid(pD, pE, ncol = 2, rel_widths = c(1.2, 1)) + pad
 row4 <- pF + pad
 
-fig4_base <- plot_grid(row1, row2, row3, row4,
+fig5_base <- plot_grid(row1, row2, row3, row4,
                        ncol = 1, rel_heights = h_rel)
 
 # ------------------------------------------------------------------------------
@@ -107,7 +107,7 @@ x_E    <- 1.2 / 2.2
 LSIZE  <- 30     # matches Fig. 6 convention
 
 message(">>> Adding panel labels...")
-fig4_labeled <- ggdraw(fig4_base) +
+fig5_labeled <- ggdraw(fig5_base) +
   draw_label("A", x = X_L,  y = y_lbl[1], fontface = "bold", size = LSIZE) +
   draw_label("B", x = X_R,  y = y_lbl[1], fontface = "bold", size = LSIZE) +
   draw_label("C", x = X_L,  y = y_lbl[2], fontface = "bold", size = LSIZE) +
@@ -120,12 +120,12 @@ fig4_labeled <- ggdraw(fig4_base) +
 # ------------------------------------------------------------------------------
 W   <- 15
 DPI <- 600
-tmp_png  <- file.path(OUT_DIR, "Fig4_temp.png")
-out_png  <- file.path(OUT_DIR, "Fig4_final.png")
-out_tiff <- file.path(OUT_DIR, "Fig4_final.tiff")
+tmp_png  <- file.path(OUT_DIR, "Fig5_temp.png")
+out_png  <- file.path(OUT_DIR, "Fig5_final.png")
+out_tiff <- file.path(OUT_DIR, "Fig5_final.tiff")
 
 message(">>> Saving (", W, " x ", H_TOT, " in @ ", DPI, " dpi)...")
-ggsave(tmp_png, fig4_labeled,
+ggsave(tmp_png, fig5_labeled,
        width = W, height = H_TOT, dpi = DPI, bg = "white")
 
 img  <- magick::image_read(tmp_png)
@@ -135,7 +135,7 @@ img  <- magick::image_crop(img,
 magick::image_write(img, out_png)
 if (file.exists(tmp_png)) file.remove(tmp_png)
 
-ggsave(out_tiff, fig4_labeled,
+ggsave(out_tiff, fig5_labeled,
        width = W, height = H_TOT, dpi = DPI, bg = "white",
        device = "tiff", compression = "lzw")
 
@@ -143,5 +143,5 @@ message("\n", strrep("=", 60))
 message("  Done! PNG : ", out_png)
 message("  Done! TIFF: ", out_tiff)
 message("  Size : ", W, " x ", H_TOT, " in @ ", DPI, " dpi")
-message("  Note : Place IHC images as Fig4D_IHC.png to replace placeholder.")
+message("  Note : Place IHC images as Fig5D_IHC.png to replace placeholder.")
 message(strrep("=", 60))

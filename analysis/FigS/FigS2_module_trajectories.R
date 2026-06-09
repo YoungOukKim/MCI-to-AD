@@ -16,7 +16,7 @@
 #   FigS2_final.png   (300 dpi)
 #   FigS2_final.tiff  (300 dpi, LZW — journal submission)
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
 # Usage : Rscript analysis/FigS/FigS2_module_trajectories.R
 # Requirements : R >= 4.3.2 | rhdf5, dplyr, tidyr, ggplot2, patchwork
 # ==============================================================================

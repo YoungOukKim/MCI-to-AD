@@ -27,8 +27,8 @@
 #   NF-kB motifs conserved   : PTGDS promoter n=7, LCN2 promoter n=5
 #   Lipocalin domain         : IPR022271 conserved across all 4 species
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
-# Usage : Rscript analysis/Fig3_network_pharmacology/FigS3_PTGDS_conservation.R
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
+# Usage : Rscript analysis/Fig4_network_pharmacology/FigS3_PTGDS_conservation.R
 # Requires: ggplot2, ggtree, ape, Biostrings, ggmsa, dplyr, readr
 # ==============================================================================
 

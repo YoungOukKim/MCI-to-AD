@@ -4,8 +4,10 @@
 
 | Script | Output | Description |
 |--------|--------|-------------|
-| `Fig3_network_pharmacology.R` | `output/Fig3/` | **Fig. 4A–D**: BXP-101 target network and docking (folder/script names retain legacy `Fig3` prefix) |
-| `FigS3_PTGDS_conservation.R` | `output/FigS3/` | **Supplementary Fig. S5**: PTGDS evolutionary conservation (legacy `FigS3` prefix; ⚠ verify panel layout vs current Supp Fig S5) |
+| `Fig4_network_pharmacology.R` | `output/Fig4/` | **Fig. 4A–D**: BXP-101 target network and in silico docking |
+| `FigS3_PTGDS_conservation.R` | `output/FigS3/` | **Supplementary Fig. S5**: PTGDS evolutionary conservation (script/output files keep the legacy `FigS3` prefix — see note below; ⚠ verify panel layout vs current Supp Fig. S5) |
+
+> **Supplementary numbering:** the conservation analysis is **Supplementary Fig. S5** in the manuscript, but its script and output files still carry the legacy `FigS3` prefix. Renaming the `FigS*` files to match the paper's supplementary order is a separate pass and is **not** part of the main Fig. 1–5 renumber.
 
 ---
 
@@ -36,9 +38,9 @@ docking_scores.csv          # AutoDock Vina summary (Compound, Target, PDB, Affi
 
 ## Supplementary Fig. S5 — PTGDS Evolutionary Conservation
 
-> ⚠ **Numbering & panels:** this analysis is **Supplementary Fig. S5** in the published paper (legacy files keep the `FigS3` prefix). The panel breakdown below is from an earlier draft layout; verify against the current Supp Fig S5 (A: MSA alignment; B: structural superimposition/RMSD; C: NF-κB RELA binding affinity) before relying on it.
+> ⚠ **Panels:** the panel breakdown below is from an earlier draft layout. Verify against the current Supplementary Fig. S5 (A: MSA alignment; B: structural superimposition/RMSD; C: NF-κB RELA binding affinity) before relying on it.
 
-### Panels
+### Panels (legacy `S3*` labels)
 | Panel | Description |
 |-------|-------------|
 | S3A | Phylogenetic tree — ptgdsb.1/2 (zebrafish), PTGDS (human), Ptgds (mouse) |
@@ -73,15 +75,15 @@ aligned.fasta.treefile      # IQ-TREE output (Newick format)
 ## Usage
 
 ```r
-# Fig. 4 (network pharmacology; legacy Fig3 paths)
+# Fig. 4 (network pharmacology)
 Sys.setenv(NET_DATA = "data/network_pharmacology")
-Sys.setenv(FIG3_OUT = "output/Fig3")
-source("analysis/Fig3_network_pharmacology/Fig3_network_pharmacology.R")
+Sys.setenv(FIG4_OUT = "output/Fig4")
+source("analysis/Fig4_network_pharmacology/Fig4_network_pharmacology.R")
 
-# Supp Fig. S5 (PTGDS conservation; legacy FigS3 paths)
+# Supplementary Fig. S5 (PTGDS conservation; files keep legacy FigS3 prefix)
 Sys.setenv(CONSERVATION_DATA = "data/conservation")
 Sys.setenv(FIGS3_OUT         = "output/FigS3")
-source("analysis/Fig3_network_pharmacology/FigS3_PTGDS_conservation.R")
+source("analysis/Fig4_network_pharmacology/FigS3_PTGDS_conservation.R")
 ```
 
 ## R package requirements

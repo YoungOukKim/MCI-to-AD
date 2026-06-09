@@ -1,5 +1,5 @@
 # ==============================================================================
-# Fig3_network_pharmacology.R
+# Fig4_network_pharmacology.R
 #
 # Purpose : Reproduce Fig. 3 panels A-D
 #           Network pharmacology and molecular docking of BXP-101 components
@@ -22,8 +22,8 @@
 #      PDB: NF-kB p65 1NFI | GSK3B 1Q3D | PTGS2 5KIR
 #      → docking_scores.csv  (Compound, Target, PDB, Affinity_kcal_mol)
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
-# Usage : Rscript analysis/Fig3_network_pharmacology/Fig3_network_pharmacology.R
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
+# Usage : Rscript analysis/Fig4_network_pharmacology/Fig4_network_pharmacology.R
 # Requires: ggplot2, ggVennDiagram, igraph, ggraph, dplyr, readr
 # ==============================================================================
 
@@ -34,7 +34,7 @@ suppressPackageStartupMessages({
 })
 
 DATA_DIR <- Sys.getenv("NET_DATA", unset = "data/network_pharmacology")
-OUT_DIR  <- Sys.getenv("FIG3_OUT", unset = "output/Fig3")
+OUT_DIR  <- Sys.getenv("FIG4_OUT", unset = "output/Fig4")
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 DPI <- 600; WHITE <- "white"
 
@@ -73,9 +73,9 @@ pA <- if (all(lengths(target_list) > 0)) {
     theme(legend.position = "none")
 } else placeholder("Venn diagram\n(supply targets_*.csv in data/network_pharmacology/)")
 
-ggsave(file.path(OUT_DIR,"Fig3A_venn.png"), pA,
+ggsave(file.path(OUT_DIR,"Fig4A_venn.png"), pA,
        width=6, height=5, dpi=DPI, bg=WHITE)
-message("  Saved Fig3A_venn.png")
+message("  Saved Fig4A_venn.png")
 
 # ==============================================================================
 # PANEL B — PPI network (top 12 hubs)
@@ -103,9 +103,9 @@ pB <- if (!is.null(ppi_df)) {
     theme(plot.margin=margin(10,10,10,10))
 } else placeholder("PPI network\n(supply ppi_network.tsv in data/network_pharmacology/)")
 
-ggsave(file.path(OUT_DIR,"Fig3B_PPI.png"), pB,
+ggsave(file.path(OUT_DIR,"Fig4B_PPI.png"), pB,
        width=7, height=6, dpi=DPI, bg=WHITE)
-message("  Saved Fig3B_PPI.png")
+message("  Saved Fig4B_PPI.png")
 
 # ==============================================================================
 # PANEL C — Pathway enrichment
@@ -132,9 +132,9 @@ pC <- if (!is.null(enrich)) {
                  legend.position="bottom")
 } else placeholder("Pathway enrichment\n(supply enrichment_results.csv)")
 
-ggsave(file.path(OUT_DIR,"Fig3C_enrichment.png"), pC,
+ggsave(file.path(OUT_DIR,"Fig4C_enrichment.png"), pC,
        width=9, height=6, dpi=DPI, bg=WHITE)
-message("  Saved Fig3C_enrichment.png")
+message("  Saved Fig4C_enrichment.png")
 
 # ==============================================================================
 # PANEL D — Docking binding affinity
@@ -160,9 +160,9 @@ pD <- if (!is.null(dock)) {
                  axis.text.x=element_text(angle=30, hjust=1))
 } else placeholder("Docking affinity\n(supply docking_scores.csv)\nPose images from AutoDock Vina supplied separately")
 
-ggsave(file.path(OUT_DIR,"Fig3D_docking.png"), pD,
+ggsave(file.path(OUT_DIR,"Fig4D_docking.png"), pD,
        width=7, height=5, dpi=DPI, bg=WHITE)
-message("  Saved Fig3D_docking.png")
+message("  Saved Fig4D_docking.png")
 
 message("\n", strrep("=",60))
 message("  Fig. 3 panels saved to: ", OUT_DIR)

@@ -13,7 +13,7 @@
 #   FigS7_final.png   (300 dpi)
 #   FigS7_final.tiff  (300 dpi, LZW — journal submission)
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
 # Usage : Rscript analysis/FigS/FigS7_compound_characterization.R
 # Requirements : R >= 4.3.2 | ggplot2, cowplot, magick
 # ==============================================================================

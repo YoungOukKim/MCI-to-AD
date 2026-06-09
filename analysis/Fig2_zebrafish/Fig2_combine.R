@@ -13,7 +13,7 @@
 #
 # Run after Fig2A_H_panels.R has been executed.
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
 # Usage : Rscript analysis/Fig2_zebrafish/Fig2_combine.R
 # Requirements : R >= 4.3.2 | cowplot, magick
 # ==============================================================================

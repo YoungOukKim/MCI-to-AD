@@ -25,7 +25,7 @@
 #   H = Molecular recovery schematic
 #      (NF-kB suppression -> ptgdsb capacity -> TNF-a/IL-6 down -> NGFR re-expression)
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
 # Usage : Rscript analysis/Fig2_zebrafish/Fig2A_H_panels.R
 # Requirements : R >= 4.3.2 | ggplot2, dplyr, tidyr, magick
 # ==============================================================================

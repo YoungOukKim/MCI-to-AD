@@ -14,7 +14,7 @@
 #   FigS1_final.png   (300 dpi)
 #   FigS1_final.tiff  (300 dpi, LZW — journal submission)
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
 # Usage : Rscript analysis/FigS/FigS1_PTGDS_inflection_validation.R
 # Requirements : R >= 4.3.2 | ggplot2, dplyr, segmented, data.table,
 #                cowplot, patchwork

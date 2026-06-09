@@ -33,7 +33,7 @@
 # Input   : output/SEAAD_processed_data.RData  (from 01_SEAAD_data_extraction.R)
 # Note    : h5ad not required (uses pre-processed RData)
 #
-# Paper: Kim Y et al. (2025). bioRxiv. https://github.com/YoungOukKim/MCI-to-AD
+# Paper: Kim Y et al. (2026). Research Square. https://doi.org/10.21203/rs.3.rs-9499795 https://github.com/YoungOukKim/MCI-to-AD
 # Usage: Rscript analysis/Tables/Tables_main_and_S1_S4.R
 # Requirements: R >= 4.3.2 | data.table, dplyr, segmented
 # ==============================================================================

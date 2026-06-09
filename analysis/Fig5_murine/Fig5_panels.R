@@ -1,15 +1,15 @@
 # ==============================================================================
-# Fig4_panels.R
+# Fig5_panels.R
 #
 # Purpose : Generate individual Fig. 4 panels (A–F), NO panel labels.
-#           Labels are added separately in Fig4_combine.R
+#           Labels are added separately in Fig5_combine.R
 #
 # Outputs (all -> OUT_DIR)
-#   Fig4A_ymaze.png
-#   Fig4B_PAT.png
-#   Fig4C_inflammatory.png      (LCN2, TNF-alpha, IL-6, IL-1beta)
-#   Fig4E_trophic.png           (NGFR, BDNF)
-#   Fig4F_oxidative.png         (Keap1, APOE, ABCA1)
+#   Fig5A_ymaze.png
+#   Fig5B_PAT.png
+#   Fig5C_inflammatory.png      (LCN2, TNF-alpha, IL-6, IL-1beta)
+#   Fig5E_trophic.png           (NGFR, BDNF)
+#   Fig5F_oxidative.png         (Keap1, APOE, ABCA1)
 #
 # Panel mapping:
 #   A = Y-maze spontaneous alternation (%)
@@ -20,8 +20,8 @@
 #   F = Keap1, APOE, ABCA1 (qPCR)
 #
 # Data source : data/murine/murine_behavioral_molecular_data.xlsx
-# Paper       : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
-# Usage       : Rscript analysis/Fig4_murine/Fig4_panels.R
+# Paper       : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
+# Usage       : Rscript analysis/Fig5_murine/Fig5_panels.R
 # Requirements: R >= 4.3.2 | ggplot2, dplyr, readxl, tidyr, ggpubr
 # ==============================================================================
 
@@ -38,7 +38,7 @@ suppressPackageStartupMessages({
 # ------------------------------------------------------------------------------
 DATA_FILE <- Sys.getenv("MURINE_DATA",
   unset = "data/murine/murine_behavioral_molecular_data.xlsx")
-OUT_DIR   <- Sys.getenv("FIG4_OUT", unset = "output/Fig4")
+OUT_DIR   <- Sys.getenv("FIG5_OUT", unset = "output/Fig5")
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # ------------------------------------------------------------------------------
@@ -125,9 +125,9 @@ pA <- ggplot(ym, aes(x = Group, y = Mean, fill = Group)) +
   labs(x = NULL, y = "Spontaneous Alternation (%)") +
   BASE
 
-ggsave(file.path(OUT_DIR, "Fig4A_ymaze.png"), pA,
+ggsave(file.path(OUT_DIR, "Fig5A_ymaze.png"), pA,
        width = 8, height = 6.5, dpi = DPI, bg = WHITE)
-message("  Saved Fig4A_ymaze.png")
+message("  Saved Fig5A_ymaze.png")
 
 # ==============================================================================
 # PANEL B — Passive Avoidance Test (Retention latency)
@@ -163,9 +163,9 @@ pB <- ggplot(pat, aes(x = Group, y = Ret_mean, fill = Group)) +
   labs(x = NULL, y = "Retention Latency (sec)") +
   BASE
 
-ggsave(file.path(OUT_DIR, "Fig4B_PAT.png"), pB,
+ggsave(file.path(OUT_DIR, "Fig5B_PAT.png"), pB,
        width = 8, height = 6.5, dpi = DPI, bg = WHITE)
-message("  Saved Fig4B_PAT.png")
+message("  Saved Fig5B_PAT.png")
 
 # ==============================================================================
 # PANELS C, E, F — PCR molecular markers
@@ -218,9 +218,9 @@ pC <- make_pcr_plot(
   "Relative expression (vs Sham)",
   width_in = 13
 )
-ggsave(file.path(OUT_DIR, "Fig4C_inflammatory.png"), pC,
+ggsave(file.path(OUT_DIR, "Fig5C_inflammatory.png"), pC,
        width = 13, height = 5.5, dpi = DPI, bg = WHITE)
-message("  Saved Fig4C_inflammatory.png")
+message("  Saved Fig5C_inflammatory.png")
 
 # Panel E — trophic markers
 pE <- make_pcr_plot(
@@ -228,9 +228,9 @@ pE <- make_pcr_plot(
   "Relative expression (vs Sham)",
   width_in = 8
 )
-ggsave(file.path(OUT_DIR, "Fig4E_trophic.png"), pE,
+ggsave(file.path(OUT_DIR, "Fig5E_trophic.png"), pE,
        width = 8, height = 5.5, dpi = DPI, bg = WHITE)
-message("  Saved Fig4E_trophic.png")
+message("  Saved Fig5E_trophic.png")
 
 # Panel F — oxidative / lipid markers
 pF <- make_pcr_plot(
@@ -238,11 +238,11 @@ pF <- make_pcr_plot(
   "Relative expression (vs Sham)",
   width_in = 11
 )
-ggsave(file.path(OUT_DIR, "Fig4F_oxidative.png"), pF,
+ggsave(file.path(OUT_DIR, "Fig5F_oxidative.png"), pF,
        width = 11, height = 5.5, dpi = DPI, bg = WHITE)
-message("  Saved Fig4F_oxidative.png")
+message("  Saved Fig5F_oxidative.png")
 
 message("\n", strrep("=", 60))
 message("  All panels saved to: ", OUT_DIR)
-message("  Next step: run Fig4_combine.R to assemble with labels.")
+message("  Next step: run Fig5_combine.R to assemble with labels.")
 message(strrep("=", 60))

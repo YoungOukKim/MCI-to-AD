@@ -25,7 +25,7 @@
 #     FigS6_trend.csv         - Panel B: MMSE, LCN2_smooth, NEFL_smooth, platform
 #     FigS6_tmt_ptgds.csv     - Panel C: MMSE, PTGDS_final (per-batch z)
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
 # Usage : Rscript analysis/FigS/FigureS7_ADNI_CSF_crossplatform.R
 # Requirements : R >= 4.3.2 | tidyverse, ggplot2, cowplot
 # ==============================================================================

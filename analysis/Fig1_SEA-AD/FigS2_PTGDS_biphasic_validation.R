@@ -23,7 +23,7 @@
 #   Results: "segmented regression on unsmoothed bin-level means (n = 9 bins)
 #             identified a significant early inflection at Bin 0.23
 #             (95% CI: 0.13–0.33; Davies' p = 0.032)"
-#   Kim Y†, Heo W†, Park S†, et al. (2025). bioRxiv.
+#   Kim Y†, Heo W†, Park S†, et al. (2026). Research Square. https://doi.org/10.21203/rs.3.rs-9499795
 #   https://github.com/YoungOukKim/MCI-to-AD
 #
 # Usage

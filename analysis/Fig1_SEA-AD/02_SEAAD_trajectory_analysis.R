@@ -18,7 +18,7 @@
 #   and lag.max = 3 for the full 9-bin trajectory. set.seed(42), R v4.3.2.
 #
 # Paper reference
-#   Kim Y†, Heo W†, Park S†, et al. (2025). bioRxiv.
+#   Kim Y†, Heo W†, Park S†, et al. (2026). Research Square. https://doi.org/10.21203/rs.3.rs-9499795
 #   https://github.com/YoungOukKim/MCI-to-AD
 #
 # Usage

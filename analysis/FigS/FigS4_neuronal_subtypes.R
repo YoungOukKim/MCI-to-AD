@@ -24,7 +24,7 @@
 #     FigS4_ratio.csv        — SST+ BAX/BCL2 ratio trajectory
 #   To regenerate from raw data, uncomment write.csv() lines at the end.
 #
-# Paper : Kim Y et al. (2025). https://github.com/YoungOukKim/MCI-to-AD
+# Paper : Kim Y et al. (2026). https://github.com/YoungOukKim/MCI-to-AD
 # Usage : Rscript analysis/FigS/FigS4_neuronal_subtypes.R
 # Requirements : R >= 4.3.2 | data.table, ggplot2, patchwork
 # ==============================================================================

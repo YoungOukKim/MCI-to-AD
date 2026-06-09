@@ -14,7 +14,7 @@ TMT_CSV  <- Sys.getenv("TMT_CSV",  "path/to/EMORY_CSF_TMT_MS.csv")
 SOMA_CSV <- Sys.getenv("SOMA_CSV", "path/to/CruchagaLab_CSF_SOMAscan7k_Protein_matrix_postQC_20230620.csv")
 ROCHE    <- Sys.getenv("ROCHE",    "path/to/UPENNBIOMK_ROCHE_ELECSYS_09Jan2026.csv")
 MMSE_CSV <- Sys.getenv("MMSE_CSV", "path/to/MMSE_09Jan2026.csv")
-OUT_DIR  <- Sys.getenv("OUT_DIR", file.path("output","Fig5"))
+OUT_DIR  <- Sys.getenv("OUT_DIR", file.path("output","Fig3"))
 dir.create(OUT_DIR, showWarnings=FALSE, recursive=TRUE)
 numf <- function(x) suppressWarnings(as.numeric(gsub("[<>]","",as.character(x))))
 
@@ -89,5 +89,5 @@ ggsave(file.path(OUT_DIR,"Fig3_CSF_concordance.png"),fig,width=15.5,height=6.4,d
 ggsave(file.path(OUT_DIR,"Fig3_CSF_concordance.tif"),fig,width=15.5,height=6.4,dpi=300,bg="white",compression="lzw")
 cat(sprintf("NEFL r=%.3f | LCN2 TMT r=%.3f%s\n",rN,cor(tmt$LCN2_P80188_z,tmt$MMSE),
             if(soma_ok) sprintf(" Soma r=%.3f",soma_r) else ""))
-## To re-render: Rscript analysis/Fig5_ADNI/Fig5_CSF_concordance.R
+## To re-render: Rscript analysis/Fig3_ADNI/Fig3_CSF_concordance.R
 ## (requires patchwork; set TMT_CSV/SOMA_CSV/ROCHE/MMSE_CSV env vars or path/to/ paths)

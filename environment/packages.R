@@ -2,7 +2,7 @@
 # packages.R
 #
 # Purpose : Install all R packages required to reproduce analyses in
-#           Kim Y†, Heo W†, Park S†, et al. (2025). bioRxiv.
+#           Kim Y†, Heo W†, Park S†, et al. (2026). Research Square. https://doi.org/10.21203/rs.3.rs-9499795
 #           https://github.com/YoungOukKim/MCI-to-AD
 #
 # Usage   : Rscript environment/packages.R

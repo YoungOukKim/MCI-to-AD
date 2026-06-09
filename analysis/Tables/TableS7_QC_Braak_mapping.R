@@ -29,7 +29,7 @@
 #           H5AD_PATH env var (optional, for reading live QC metrics)
 # Output  : output/tables/TableS7_*.csv
 #
-# Paper: Kim Y et al. (2025). bioRxiv. https://github.com/YoungOukKim/MCI-to-AD
+# Paper: Kim Y et al. (2026). Research Square. https://doi.org/10.21203/rs.3.rs-9499795 https://github.com/YoungOukKim/MCI-to-AD
 # Usage: Rscript analysis/Tables/TableS7_QC_Braak_mapping.R
 # Requirements: R >= 4.3.2 | data.table, rhdf5 (optional for live QC)
 # ==============================================================================
