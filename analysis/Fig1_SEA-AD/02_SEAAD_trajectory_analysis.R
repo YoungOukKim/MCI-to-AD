@@ -7,7 +7,7 @@
 # Outputs → Paper tables
 #   output/Table1_3binMA_Full.csv          → Table 1 (main text, full)
 #   output/Table1_Paper_Summary.csv        → Table 1 (Bins 0.1 / 0.6 / 0.9)
-#   output/Table2_Checkpoint_CCF.csv       → Table 2 (main text, inflection window)
+#   output/Table2_Inflection_CCF.csv       → Table 2 (main text, inflection window)
 #   output/TableS1_Raw_PerBin.csv          → Additional file 1: Table S1
 #   output/TableS4_FullTrajectory_CCF.csv  → Additional file 1: Table S4
 #
@@ -251,7 +251,7 @@ setcolorder(res_t2, c("Pair", "Cell_Type", "Lag", "r", "p_val", "Sig", "n_eff"))
 
 message("  Table 2 (inflection window, Bins 0.4–0.8):")
 print(res_t2)
-write.csv(res_t2, file.path(OUT_DIR, "Table2_Checkpoint_CCF.csv"), row.names = FALSE)
+write.csv(res_t2, file.path(OUT_DIR, "Table2_Inflection_CCF.csv"), row.names = FALSE)
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 8. Summary
@@ -262,7 +262,7 @@ message(strrep("=", 65))
 message("  TableS1_Raw_PerBin.csv          →  Additional file 1: Table S1")
 message("  Table1_3binMA_Full.csv          →  Table 1 (full, 9 bins)")
 message("  Table1_Paper_Summary.csv        →  Table 1 (Bins 0.1 / 0.6 / 0.9)")
-message("  Table2_Checkpoint_CCF.csv       →  Table 2")
+message("  Table2_Inflection_CCF.csv       →  Table 2")
 message("  TableS4_FullTrajectory_CCF.csv  →  Additional file 1: Table S4")
 message(strrep("=", 65))
 message(">>> Script 02 complete.")

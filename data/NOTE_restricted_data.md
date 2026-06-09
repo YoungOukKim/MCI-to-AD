@@ -21,7 +21,7 @@ and **cannot be included in this repository**.
 - **Access:** Registration + data use agreement required
 - **URL:** https://adni.loni.usc.edu
 - **Data used:** CSF proteomics — Emory TMT-MS and SomaScan 7K platforms
-  (PTGDS, LCN2, NEFL; n = 735 participants: CN=172, EMCI=183, LMCI=234, AD=146)
+  (PTGDS, LCN2, NEFL; TMT-MS analyzed n = 1,104)
 - **Reference:** Petersen et al. (2010). *Neurology*, 74(3), 201–209.
 
 > Data used in compliance with the ADNI Data Use Agreement.

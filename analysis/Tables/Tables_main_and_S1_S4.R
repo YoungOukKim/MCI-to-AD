@@ -9,7 +9,7 @@
 #     Table1_CellType_Trajectories.csv      → Table 1 (3-bin MA at Bins 0.1/0.6/0.9)
 #     Table2_Statistical_Validation.csv     → Table 2 (quadratic + segmented stats)
 #     Table2_Segmented_Slopes_Detail.csv    → Table 2 supplemental (slopes)
-#     Table3_Checkpoint_CCF.csv             → Table 3 (inflection window CCF)
+#     Table3_Inflection_CCF.csv             → Table 3 (inflection window CCF)
 #
 #   Supplementary:
 #     TableS4_Full_Trajectories.csv          → Additional file 1: Table S4
@@ -272,7 +272,7 @@ table3 <- rbindlist(lapply(pairs_t3, function(p) {
 }))
 
 message("  Table 3:"); print(table3)
-write.csv(table3, file.path(OUT_DIR,"Table3_Checkpoint_CCF.csv"), row.names=FALSE)
+write.csv(table3, file.path(OUT_DIR,"Table3_Inflection_CCF.csv"), row.names=FALSE)
 
 # ==============================================================================
 # 6. TABLE S1 — Full trajectories (all 9 bins, 3-bin MA)
@@ -309,7 +309,7 @@ s2_genes <- list(
   list("CASP3","Pro-apoptotic"), list("BAX","Pro-apoptotic"),
   list("BCL2","Anti-apoptotic"), list("AQP4","Astrocyte identity"),
   list("SLC1A2","Astrocyte identity"), list("GFAP","Reactive astrocyte"),
-  list("PTGDS","Checkpoint marker")
+  list("PTGDS","Inflection marker")
 )
 # LCN2 excluded: astrocytic detection 0.007% (5/67,419) -> untestable.
 
@@ -435,7 +435,7 @@ cat(strrep("=", 65), "\n")
 cat("  Table1_CellType_Trajectories.csv       ->  Table 1\n")
 cat("  Table2_Statistical_Validation.csv      ->  Table 2\n")
 cat("  Table2_Segmented_Slopes_Detail.csv     ->  Table 2 (slopes)\n")
-cat("  Table3_Checkpoint_CCF.csv              ->  Table 3\n")
+cat("  Table3_Inflection_CCF.csv              ->  Table 3\n")
 cat("  TableS4_Full_Trajectories.csv          ->  Table S4\n")
 cat("  TableS5_Apoptotic_Identity_Markers.csv ->  Table S5\n")
 cat("  TableS6_Full_Trajectory_CCF.csv        ->  Table S6\n")

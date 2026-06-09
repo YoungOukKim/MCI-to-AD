@@ -20,11 +20,9 @@ cran_pkgs <- c(
   "lubridate",    # date handling (Script 03)
   # Statistical analysis
   "segmented",    # segmented regression + Davies' test (Script 04)
-  "pROC",         # ROC / AUC with DeLong CI (Script 03)
   "survival",     # Cox proportional hazards (Script 03)
   # Visualization
   "ggplot2",      # all plots (Script 04)
-  "survminer",    # Kaplan-Meier plots (Script 03)
   "patchwork",    # combined figure panels (Script 04, optional)
   # HDF5 for SEA-AD h5ad
   "zoo"           # rolling means (alternative to manual loop)
