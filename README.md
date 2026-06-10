@@ -59,23 +59,23 @@ MCI-to-AD/
 │   ├── FigS/                            # supplementary figures S1–S8
 │   │   ├── FigS1_PTGDS_inflection_validation.R    # Supp. Fig. S1
 │   │   ├── FigS2_module_trajectories.R            # Supp. Fig. S2
-│   │   ├── FigS3_compound_characterization.R      # Supp. Fig. S3 (BXP-101 HPLC)
-│   │   ├── FigS4_BV2_microglial_assay.R           # Supp. Fig. S4
-│   │   ├── FigS5_PTGDS_conservation.R             # Supp. Fig. S5
-│   │   ├── FigS6_neuronal_subtypes.R              # Supp. Fig. S6
-│   │   ├── FigS7_ADNI_CSF_crossplatform.R         # Supp. Fig. S7
-│   │   ├── P1_age_cps.R                           # Supp. Fig. S8 (age–CPS)
+│   │   ├── FigS3_compound_characterization.R      # Supp. Fig. S8 (BXP-101 HPLC)
+│   │   ├── FigS4_BV2_microglial_assay.R           # Supp. Fig. S5 (BV-2 in vitro)
+│   │   ├── FigS5_PTGDS_conservation.R             # Supp. Fig. S4 (conservation)
+│   │   ├── FigS6_neuronal_subtypes.R              # Supp. Fig. S3 (neuronal subtypes)
+│   │   ├── FigS7_ADNI_CSF_crossplatform.R         # Supp. Fig. S6 (CSF cross-platform)
+│   │   ├── P1_age_cps.R                           # Supp. Fig. S7 (age–CPS)
 │   │   └── README.md
 │   └── Tables/
 │       ├── TableS1_QC_Braak_mapping.R
 │       └── Tables_main_and_S1_S4.R
 │
 ├── data/
-│   ├── SEA-AD/                          # derived donor-level CSVs (age_cps_donor.csv; FigS1, FigS6 means)
+│   ├── SEA-AD/                          # derived donor-level CSVs (see mapping tables below)
 │   ├── ADNI/                            # de-identified group-level summary CSVs (cross-platform)
 │   ├── murine/                          # murine_behavioral_molecular_data.xlsx
 │   ├── zebrafish/                       # raw 14/21 dpf behavior, qPCR, ELISA, WIF (+ README)
-│   ├── FigS3/  FigS4/  FigS5/           # supplementary panel source images (S3 HPLC, S4 BV-2, S5 conservation)
+│   ├── FigS3/  FigS4/  FigS5/           # panel images (repo FigS3=Supp S8 HPLC, FigS4=Supp S5 BV-2, FigS5=Supp S4 conservation)
 │   └── NOTE_restricted_data.md          # SEA-AD / ADNI access terms (not redistributable)
 │
 ├── assets/                              # repository cover images
@@ -85,7 +85,38 @@ MCI-to-AD/
 └── output/                              # script-generated tables/figures (created on run)
 ```
 
-> **Manuscript figure mapping:** **Fig. 1** SEA-AD single-nucleus trajectories · **Fig. 2** zebrafish MCI model · **Fig. 3** ADNI CSF concordance · **Fig. 4** network pharmacology and in silico docking · **Fig. 5** murine validation. Analysis folders and supplementary scripts (`analysis/FigS/`, S1–S8) are named by their final manuscript figure number.
+> **Main figures:** **Fig. 1** SEA-AD trajectories · **Fig. 2** zebrafish MCI model · **Fig. 3** ADNI CSF concordance · **Fig. 4** network pharmacology / docking · **Fig. 5** murine validation. Main-figure folders match the manuscript numbering.
+
+> **IMPORTANT — repository scripts retain an earlier internal numbering for supplementary items.** Use the two tables below to map repository scripts to the **final manuscript** supplementary numbers. (Files are intentionally **not renamed** to avoid breaking hard-coded data paths and reproducibility.)
+
+### Supplementary figure → repository script
+
+| Manuscript | Content | Repository script |
+| --- | --- | --- |
+| **Supp. Fig. S1** | Statistical validation of the biphasic PTGDS inflection | `analysis/FigS/FigS1_PTGDS_inflection_validation.R` |
+| **Supp. Fig. S2** | Module-level trajectory dissection | `analysis/FigS/FigS2_module_trajectories.R` |
+| **Supp. Fig. S3** | Differential vulnerability across neuronal subtypes | `analysis/FigS/FigS6_neuronal_subtypes.R` |
+| **Supp. Fig. S4** | Cross-species PTGDS conservation | `analysis/FigS/FigS5_PTGDS_conservation.R` |
+| **Supp. Fig. S5** | BV-2 microglial assay (in vitro) | `analysis/FigS/FigS4_BV2_microglial_assay.R` |
+| **Supp. Fig. S6** | ADNI CSF cross-platform validation (TMT-MS / SomaScan) | `analysis/FigS/FigS7_ADNI_CSF_crossplatform.R` |
+| **Supp. Fig. S7** | Donor age vs CPS independence | `analysis/FigS/P1_age_cps.R` |
+| **Supp. Fig. S8** | BXP-101 HPLC chemical standardization | `analysis/FigS/FigS3_compound_characterization.R` |
+
+### Supplementary table → repository script
+
+> The script-internal "Supplementary Table S#" labels do **not** match the manuscript; use the **Manuscript** column.
+
+| Manuscript | Content | Repository source (internal label) |
+| --- | --- | --- |
+| **Supp. Table S1** | Bin-resolved cell-type expression trajectories | `analysis/Tables/Tables_main_and_S1_S4.R` → `TableS4_Full_Trajectories.csv` (labelled "S4") |
+| **Supp. Table S2** | Spearman apoptotic / identity / reactive markers | `Tables_main_and_S1_S4.R` → `TableS5_Apoptotic_Identity_Markers.csv` (labelled "S5") |
+| **Supp. Table S3** | Lagged cross-correlation (full CPS) | `Tables_main_and_S1_S4.R` → `TableS6_Full_Trajectory_CCF.csv` (labelled "S6") |
+| **Supp. Table S4** | Neuronal subtype vulnerability | `Tables_main_and_S1_S4.R` → `TableS7_Neuronal_Subtype_Vuln.csv` (labelled "S7") |
+| **Supp. Table S5** | ADNI participant demographics | `analysis/Fig3_ADNI/03_ADNI_clinical_analysis.R` → `TableS8_Demographics.csv` (labelled "S8") |
+| **Supp. Table S6** | Independent brain bulk proteomic validation (ROSMAP/Banner) | standalone workbook `Supplementary_Table_S6.xlsx` |
+| **Supp. Table S7** | QC metrics & bin-to-Braak mapping | `analysis/Tables/TableS1_QC_Braak_mapping.R` (labelled "S1") |
+| **Supp. Table S8** | Antibody & primer resources | manuscript supplementary (not script-generated) |
+| **Supp. Table S9** | Behavioral test results (Aβ murine) | `data/murine/murine_behavioral_molecular_data.xlsx` |
 
 ---
 
@@ -127,7 +158,7 @@ MCI-to-AD/
 * Key packages: `hdf5r`, `segmented`, `ggplot2`, `cowplot` (see `environment/packages.R`)
 
 ```r
-# Donor-level age vs CPS (Supplementary Fig. S8)
+# Donor-level age vs CPS (Supplementary Fig. S7)
 source("analysis/FigS/P1_age_cps.R")
 ```
 

@@ -71,6 +71,8 @@ pA <- ggplot(tmt,aes(MMSE,NEFL_P07196_z))+geom_point(alpha=.13,size=.8,color="#D
   labs(title="CSF NEFL (positive control)",y="NEFL (z, batch-adj)",
        caption=str_wrap("NEFL vs cognition (positive control). TMT r = -0.35, p < 1e-30; strong monotonic rise; breakpoint not sharply localized (bootstrap CI ~MMSE 21-29).", width=46))+th
 ## ---- B. LCN2 weak replicated concordance ------------------------------------
+## Fallback below = PREVIOUSLY-COMPUTED replicated value, shown only when the restricted
+## SomaScan file is absent; when present, soma_r is recomputed live (above).
 slab <- if(soma_ok) sprintf("SomaScan: r = %+.2f (replicated)",soma_r) else "SomaScan: r = -0.10, p = 0.013 (replicated)"
 pB <- ggplot(tmt,aes(MMSE,LCN2_P80188_z))+geom_point(alpha=.13,size=1.1,color="#CC79A7")+
   geom_smooth(method="lm",color="#CC79A7",fill="#CC79A7",alpha=.15)+scale_x_reverse()+
