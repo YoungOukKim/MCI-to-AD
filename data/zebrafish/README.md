@@ -27,7 +27,7 @@ All experiments performed at 14 dpf and 21 dpf using *Danio rerio* larvae.
 
 ### behavior_14dpf.csv
 - **Assay**: Red ball avoidance (visual stimuli avoidance response)
-- **Method**: 6-well plate, 5 larvae/well, N=20 per group (quadruplicate)
+- **Method**: 6-well plate, 5 larvae/well, 4 wells per biological replicate = 20 larvae per group per replicate; 3 biological replicates
 - **Measurement**: % of larvae in non-stimuli area (6 min, 12-sec intervals, mean)
 - **Groups**: Control / MCI / MCI+Donepezil(10 μM) / MCI+BXP101(0.3/0.4/0.6 μg/ml)
 - **Replicates**: 3 biological replicates × 4 wells each
@@ -46,14 +46,16 @@ All experiments performed at 14 dpf and 21 dpf using *Danio rerio* larvae.
 - **Method**: ddCt method, relative expression vs Control
 - **Groups**: Control / MCI / MCI+BXP101(0.4 μg/ml) only
 - **Replicates**: 4 biological replicates per group
-- **Key finding**: ptgdsb.1/2 in MCI exceeds Control by 21 dpf (1.063/1.066), consistent with ongoing compensatory induction matching the SEA-AD CPS 0.1–0.47 phase
+- **Key finding**: ptgdsb.1/2 in MCI rises across the larval window — modestly below Control at 14 dpf (0.87/0.85) and slightly above Control by 21 dpf (1.063/1.066) — consistent with an ascending compensatory limb rather than a steady-state elevation. See `qPCR_14dpf.csv` for the 14 dpf values.
+- **BXP-101 lowers larval ptgdsb at 14 dpf in a graded manner** (ptgdsb.1: 0.96 / 0.72 / 0.65 at 0.3 / 0.4 / 0.6 μg/ml), the direction expected if reducing inflammatory load reduces compensatory demand on PTGDS rather than if the compound acted on PTGDS directly
 
 ### ELISA_14dpf.csv
 - **Assay**: Sandwich ELISA for cytokine protein quantification at 14 dpf
 - **Kits**: Zebrafish TNFα ELISA Kit (ELK8512-96T) / Zebrafish IL-6 ELISA Kit (ELK9663-96T), ELK Biotechnology
-- **Sample**: 30 larvae pooled per group; PBS homogenate w:v = 1:9
+- **Sample**: 30 larvae pooled per group; PBS homogenate w:v = 1:9. **Note:** a single pooled homogenate per group, i.e. no biological replicates — ELISA values are descriptive magnitudes and no statistics are computed from them
 - **Unit**: pg/ml
-- **Key finding**: TNF-α mRNA (BXP0.6: 1.28× MCI) vs protein (BXP0.6: 0.55× MCI) discordance indicates post-transcriptional suppression
+- **Key finding**: TNF-α protein is suppressed by BXP-101 at 0.4 and 0.6 μg/ml (0.67× and 0.55× MCI) while TNF-α mRNA at 0.6 μg/ml is unchanged relative to MCI (1.28 vs 1.28 vs Control; ratio 1.00× MCI), indicating post-transcriptional rather than transcriptional suppression. **Correction (2026-07):** an earlier version of this note stated "TNF-α mRNA (BXP0.6: 1.28× MCI)"; 1.28 is the value relative to Control, not to MCI. The mRNA ratio to MCI is 1.00×.
+- **Dose response is threshold-type, not monotonic**: at 0.3 μg/ml TNF-α (41.9 pg/ml) and IL-6 (94.7 pg/ml) were marginally above MCI (39.7 and 91.8); suppression appears only at 0.4 and 0.6 μg/ml
 
 ### WIF_14dpf.csv
 - **Assay**: Whole-mount double immunofluorescence at 14 dpf
@@ -63,3 +65,9 @@ All experiments performed at 14 dpf and 21 dpf using *Danio rerio* larvae.
 - **Quantification**: ImageJ, fixed ROI (whole head region), mean gray value (arbitrary units, a.u.)
 - **N**: 10 larvae per group
 - **Statistics**: Two-tailed t-test; `**` p<0.01, `***` p<0.001 vs Control; `###` p<0.001 vs MCI
+
+---
+
+## Revision note (2026-07)
+
+This README was corrected during manuscript revision. Changes: (1) the TNF-α mRNA ratio in the ELISA section was misstated (1.28 is relative to Control, not to MCI); (2) the 21 dpf key-finding now states the 14 dpf values as well, so the ascending trajectory is visible from the README alone; (3) the threshold-type (non-monotonic) dose response at 0.3 μg/ml is stated explicitly; (4) the ELISA is identified as a single pooled measurement per group without replicates; (5) behavioural sample size is stated unambiguously. No data files were altered.
