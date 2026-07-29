@@ -21,9 +21,9 @@ Analysis code and openly shareable data for the study of a reproducible **astroc
 
 ## Abstract
 
-Alzheimer's disease shows prolonged prodromal stability before accelerating decline, yet molecular markers resolving this heterogeneity are limited. Using pseudo-progression analysis of 1.3 million SEA-AD single nuclei (84 donors), we identify a reproducible biphasic astrocytic trajectory anchored to prostaglandin D2 synthase (PTGDS), with a statistically resolved donor-level inflection (quadratic beta2 = -2.27, p = 0.006; vertex CPS 0.47). The same directional change is independently reproduced in external brain proteomics (ROSMAP and Banner; AD versus control p = 3.4 x 10^-3), and the biphasic pattern reconciles previously conflicting CSF reports as stage-dependent. In ADNI CSF, downstream NEFL tracks cognitive decline strongly and LCN2 weakly, whereas PTGDS itself is tissue-restricted and not a stand-alone predictor. We propose, but do not establish, that post-inflection PTGDS attenuation accompanies LCN2-linked inflammation and NGFR suppression. These data position astrocytic PTGDS as a candidate stage marker, not a causal driver, of the compensatory-to-vulnerable shift in the aging brain — the astrocytic PTGDS inflection (CPS 0.47).
+Alzheimer's disease shows prolonged prodromal stability before accelerating decline, yet molecular markers resolving this heterogeneity are limited. Using pseudo-progression analysis of 1.24 million SEA-AD single nuclei retained after quality control (84 donors), we identify a reproducible biphasic astrocytic trajectory anchored to prostaglandin D2 synthase (PTGDS), with a statistically resolved donor-level inflection (quadratic beta2 = -2.27, p = 0.006; vertex CPS 0.47). The same directional change is independently reproduced in external brain proteomics (ROSMAP and Banner; AD versus control p = 3.4 x 10^-3), and the biphasic pattern reconciles previously conflicting CSF reports as stage-dependent. In ADNI CSF, downstream NEFL tracks cognitive decline strongly and LCN2 weakly, whereas PTGDS itself is tissue-restricted and not a stand-alone predictor. We propose, but do not establish, that post-inflection PTGDS attenuation accompanies LCN2-linked inflammation and NGFR suppression. These data position astrocytic PTGDS as a candidate stage marker, not a causal driver, of the compensatory-to-vulnerable shift in the aging brain — the astrocytic PTGDS inflection (CPS 0.47).
 
-> **Preprint:** Research Square — https://doi.org/10.21203/rs.3.rs-9499795 (not peer reviewed; under journal consideration)
+> **Preprint:** Research Square — https://doi.org/10.21203/rs.3.rs-9499795 (not peer reviewed). The manuscript is currently under review at *Alzheimer's Research & Therapy*.
 
 ---
 
@@ -38,7 +38,7 @@ MCI-to-AD/
 ├── analysis/
 │   ├── Fig1_SEA-AD/                     # Fig. 1 — SEA-AD snRNA-seq PTGDS trajectories
 │   │   ├── 01_SEAAD_data_extraction.R
-│   │   ├── 02_SEAAD_trajectory_analysis.R
+│   │   ├── 02_SEAAD_trajectory_analysis.R          # main Tables 1 and 3, plus supplementary tables
 │   │   ├── Figure1_panels.R
 │   │   └── README.md
 │   ├── Fig2_zebrafish/                  # Fig. 2 — reversible zebrafish MCI model
@@ -64,7 +64,8 @@ MCI-to-AD/
 │   │   ├── FigS5_PTGDS_conservation.R             # Supp. Fig. S4 (conservation)
 │   │   ├── FigS6_neuronal_subtypes.R              # Supp. Fig. S3 (neuronal subtypes)
 │   │   ├── FigS7_ADNI_CSF_crossplatform.R         # Supp. Fig. S6 (CSF cross-platform)
-│   │   ├── P1_age_cps.R                           # Supp. Fig. S7 (age–CPS)
+│   │   ├── P1_age_cps.R                           # Add. file 1, Fig. S8 (age vs CPS)
+│   │   ├── P1_vertex_CI_and_sensitivity.R         # Add. file 1, Table S5 (vertex CI, LODO, donor counts)
 │   │   └── README.md
 │   └── Tables/
 │       ├── TableS1_QC_Braak_mapping.R
@@ -87,36 +88,37 @@ MCI-to-AD/
 
 > **Main figures:** **Fig. 1** SEA-AD trajectories · **Fig. 2** zebrafish MCI model · **Fig. 3** ADNI CSF concordance · **Fig. 4** network pharmacology / docking · **Fig. 5** murine validation. Main-figure folders match the manuscript numbering.
 
-> **IMPORTANT — repository scripts retain an earlier internal numbering for supplementary items.** Use the two tables below to map repository scripts to the **final manuscript** supplementary numbers. (Files are intentionally **not renamed** to avoid breaking hard-coded data paths and reproducibility.)
+> **Supplementary numbering.** The manuscript supplementary items are delivered as **Additional file 1** (figures S1–S8, tables S1–S10) and **Additional file 2** (machine-readable copy of Table S10). Most script names now match the final numbering; the three exceptions are listed below. Files are intentionally **not renamed** to avoid breaking hard-coded data paths and reproducibility.
 
-### Supplementary figure → repository script
+### Supplementary figure -> repository script
 
-| Manuscript | Content | Repository script |
+| Additional file 1 | Content | Repository script |
 | --- | --- | --- |
-| **Supp. Fig. S1** | Statistical validation of the biphasic PTGDS inflection | `analysis/FigS/FigS1_PTGDS_inflection_validation.R` |
-| **Supp. Fig. S2** | Module-level trajectory dissection | `analysis/FigS/FigS2_module_trajectories.R` |
-| **Supp. Fig. S3** | Differential vulnerability across neuronal subtypes | `analysis/FigS/FigS6_neuronal_subtypes.R` |
-| **Supp. Fig. S4** | Cross-species PTGDS conservation | `analysis/FigS/FigS5_PTGDS_conservation.R` |
-| **Supp. Fig. S5** | BV-2 microglial assay (in vitro) | `analysis/FigS/FigS4_BV2_microglial_assay.R` |
-| **Supp. Fig. S6** | ADNI CSF cross-platform validation (TMT-MS / SomaScan) | `analysis/FigS/FigS7_ADNI_CSF_crossplatform.R` |
-| **Supp. Fig. S7** | Donor age vs CPS independence | `analysis/FigS/P1_age_cps.R` |
-| **Supp. Fig. S8** | BXP-101 HPLC chemical standardization | `analysis/FigS/FigS3_compound_characterization.R` |
+| **Fig. S1** | Statistical validation of the biphasic PTGDS trajectory and inflection point | `analysis/FigS/FigS1_PTGDS_inflection_validation.R` |
+| **Fig. S2** | Module-level mechanistic dissection of the astrocyte-neuron cascade | `analysis/FigS/FigS2_module_trajectories.R` |
+| **Fig. S3** | Chemical standardization of BXP-101 (HPLC-DAD) | `analysis/FigS/FigS3_compound_characterization.R` |
+| **Fig. S4** | In vitro BV-2 microglial validation of BXP-101 | `analysis/FigS/FigS4_BV2_microglial_assay.R` |
+| **Fig. S5** | Differential vulnerability and apoptotic buffering across neuronal subtypes | `analysis/FigS/FigS6_neuronal_subtypes.R` *(name mismatch)* |
+| **Fig. S6** | Evolutionary conservation and structural homology of PTGDS | `analysis/FigS/FigS5_PTGDS_conservation.R` *(name mismatch)* |
+| **Fig. S7** | Cross-platform CSF biomarker comparison (ADNI; TMT-MS vs SomaScan) | `analysis/FigS/FigS7_ADNI_CSF_crossplatform.R` |
+| **Fig. S8** | Donor age at death is not correlated with CPS | `analysis/FigS/P1_age_cps.R` *(name mismatch)* |
 
-### Supplementary table → repository script
+### Supplementary table -> repository source
 
-> The script-internal "Supplementary Table S#" labels do **not** match the manuscript; use the **Manuscript** column.
+> Script-internal `TableS#` labels do **not** match the final numbering; use the **Additional file 1** column.
 
-| Manuscript | Content | Repository source (internal label) |
+| Additional file 1 | Content | Repository source (internal label) |
 | --- | --- | --- |
-| **Supp. Table S1** | Bin-resolved cell-type expression trajectories | `analysis/Tables/Tables_main_and_S1_S4.R` → `TableS4_Full_Trajectories.csv` (labelled "S4") |
-| **Supp. Table S2** | Spearman apoptotic / identity / reactive markers | `Tables_main_and_S1_S4.R` → `TableS5_Apoptotic_Identity_Markers.csv` (labelled "S5") |
-| **Supp. Table S3** | Lagged cross-correlation (full CPS) | `Tables_main_and_S1_S4.R` → `TableS6_Full_Trajectory_CCF.csv` (labelled "S6") |
-| **Supp. Table S4** | Neuronal subtype vulnerability | `Tables_main_and_S1_S4.R` → `TableS7_Neuronal_Subtype_Vuln.csv` (labelled "S7") |
-| **Supp. Table S5** | ADNI participant demographics | `analysis/Fig3_ADNI/03_ADNI_clinical_analysis.R` → `TableS8_Demographics.csv` (labelled "S8") |
-| **Supp. Table S6** | Independent brain bulk proteomic validation (ROSMAP/Banner) | standalone workbook `Supplementary_Table_S6.xlsx` |
-| **Supp. Table S7** | QC metrics & bin-to-Braak mapping | `analysis/Tables/TableS1_QC_Braak_mapping.R` (labelled "S1") |
-| **Supp. Table S8** | Antibody & primer resources | manuscript supplementary (not script-generated) |
-| **Supp. Table S9** | Behavioral test results (Aβ murine) | `data/murine/murine_behavioral_molecular_data.xlsx` |
+| **Table S1** | QC metrics and bin-to-Braak stage mapping | `analysis/Tables/TableS1_QC_Braak_mapping.R` |
+| **Table S2** | Antibody and primer resources | manuscript supplementary (not script-generated) |
+| **Table S3** | Behavioural test results, amyloid-beta murine model | `data/murine/murine_behavioral_molecular_data.xlsx` |
+| **Table S4** | Bin-resolved cell-type expression trajectories | `analysis/Tables/Tables_main_and_S1_S4.R` -> `TableS4_Full_Trajectories.csv` |
+| **Table S5** | Donor counts per CPS bin and robustness of the inflection | `analysis/FigS/P1_vertex_CI_and_sensitivity.R`; data `data/SEA-AD/FigS1_bin_means_with_donors.csv` |
+| **Table S6** | Spearman correlations of apoptotic, identity and reactive markers with CPS | `Tables_main_and_S1_S4.R` -> `TableS5_Apoptotic_Identity_Markers.csv` |
+| **Table S7** | Lagged cross-correlation across the full CPS trajectory | `Tables_main_and_S1_S4.R` -> `TableS6_Full_Trajectory_CCF.csv` |
+| **Table S8** | Neuronal subtype expression and vulnerability across CPS bins | `Tables_main_and_S1_S4.R` -> `TableS7_Neuronal_Subtype_Vuln.csv` |
+| **Table S9** | ADNI participant demographics | `analysis/Fig3_ADNI/03_ADNI_clinical_analysis.R` -> `TableS8_Demographics.csv` |
+| **Table S10** | Independent brain bulk proteomic validation (ROSMAP / Banner) | standalone workbook, delivered as **Additional file 2** |
 
 ---
 
@@ -124,7 +126,7 @@ MCI-to-AD/
 
 | Dataset | Access | Link |
 | --- | --- | --- |
-| SEA-AD snRNA-seq (1.3M nuclei) | Public | https://portal.brain-map.org |
+| SEA-AD MTG snRNA-seq (~1.38M nuclei in the released file; 1.24M analysed after QC) | Public | https://portal.brain-map.org/explore/seattle-alzheimers-disease |
 | ADNI CSF proteomics | Registration + DUA | https://adni.loni.usc.edu |
 | ROSMAP / Banner proteomic statistics | Published (Johnson et al.) via AD Knowledge Portal | https://adknowledgeportal.synapse.org |
 
@@ -136,7 +138,7 @@ MCI-to-AD/
 
 | Finding | Value | Method |
 | --- | --- | --- |
-| Astrocytic PTGDS inflection (donor-level) | vertex CPS 0.47 (beta2 = -2.27, p = 0.006; n = 84) | Donor-level quadratic model |
+| Astrocytic PTGDS inflection (donor-level) | vertex CPS 0.47 (beta2 = -2.27, p = 0.006; bootstrap 95% CI 0.32-0.53; n = 84) | Donor-level quadratic model |
 | Segmented breakpoint | CPS 0.23 (95% CI 0.13–0.33) | Davies' test (p = 0.032) |
 | External proteomic reproduction | AD vs control p = 3.4 x 10^-3 | ROSMAP/Banner consensus TMT-MS (Johnson et al.) |
 | CSF NEFL (positive control) | r = -0.35, p < 10^-30 | ADNI TMT-MS vs MMSE |

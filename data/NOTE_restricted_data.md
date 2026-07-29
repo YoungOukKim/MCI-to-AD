@@ -9,9 +9,12 @@ and **cannot be included in this repository**.
 
 - **Source:** Allen Institute for Brain Science
 - **Access:** Public (no registration required)
-- **URL:** https://portal.brain-map.org/atlases-and-data/rnaseq/human-mtg-10x_sea-ad
-- **Data used:** Middle temporal gyrus snRNA-seq (1.3M nuclei, 84 donors)
-- **Reference:** Gabitto et al. (2024). *Nature Neuroscience.*
+- **URL:** https://portal.brain-map.org/explore/seattle-alzheimers-disease
+- **Data used:** Middle temporal gyrus snRNA-seq, release 2024-02-13
+  (~1.38M nuclei in the released file; 1.24M nuclei analysed after quality control, 84 donors)
+- **References (both required by the Allen Institute Citation Policy):**
+  - Gabitto M.I., Travaglini K.J., et al. (2024). Integrated multimodal cell atlas of Alzheimer's disease. *Nature Neuroscience* 27, 2366-2383.
+  - Allen Institute for Brain Science (2022). Seattle Alzheimer's Disease Brain Cell Atlas (SEA-AD) [dataset]. brain-map.org.
 
 ---
 
@@ -25,11 +28,17 @@ and **cannot be included in this repository**.
 - **Reference:** Petersen et al. (2010). *Neurology*, 74(3), 201–209.
 
 > Data used in compliance with the ADNI Data Use Agreement.
-> ADNI is funded by NIH Grant U01 AG024904.
+>
+> Data collection and sharing for the ADNI project was funded by the Alzheimer's Disease
+> Neuroimaging Initiative (National Institutes of Health Grant U01 AG024904) and DOD ADNI
+> (Department of Defense award number W81XWH-12-2-0012). ADNI investigators contributed to
+> the design and implementation of ADNI and/or provided data but did not participate in the
+> analysis or writing of this report. A complete listing of ADNI investigators is available at
+> https://adni.loni.usc.edu/wp-content/uploads/how_to_apply/ADNI_Acknowledgement_List.pdf
 
 ---
 
 ## Contact
 
 For questions about data access, contact the corresponding author:
-Youngouk Kim — [sola16@gmail.com]
+YoungOuk Kim — yo.kim@bioxp.biz (BioXP Research Institute)
