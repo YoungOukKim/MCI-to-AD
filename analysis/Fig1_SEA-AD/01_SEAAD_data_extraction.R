@@ -1,7 +1,7 @@
 # ==============================================================================
 # 01_SEAAD_data_extraction.R
 #
-# Purpose : Extract gene expression data from the SEA-AD h5ad file (1.3M nuclei)
+# Purpose : Extract gene expression data from the SEA-AD h5ad file (~1.38M nuclei)
 # Output  : output/SEAAD_processed_data.RData  (input for Script 02)
 #
 # Data source
@@ -26,7 +26,7 @@
 # SPEED NOTE
 #   Section 3 now uses the fast block read: per cell, one vectorized match()
 #   over the target-gene index vector, instead of a per-gene which() loop.
-#   Output (expr_mat) is identical; all 1.3M cells are still extracted because
+#   Output (expr_mat) is identical; all ~1.38M cells are still extracted because
 #   downstream tables/figures use multiple cell types.
 # ==============================================================================
 
@@ -75,7 +75,7 @@ message("  Extracting ", length(target_genes), " genes from ", H5AD_PATH)
 # -- 3. Extract expression matrix (sparse CSC) — FAST block read ---------------
 #   Per cell: a single match(gene_idx_map, cell_indices) maps all target genes
 #   at once (vectorized), instead of one which() scan per gene.
-message(">>> [2/5] Extracting expression from 1.3M cells (fast block read)...")
+message(">>> [2/5] Extracting expression from ~1.38M cells (fast block read)...")
 indptr  <- h5read(H5AD_PATH, "X/indptr", bit64conversion = "double")
 n_cells <- length(indptr) - 1L
 expr_mat <- matrix(0, nrow = n_cells, ncol = length(gene_idx_map),

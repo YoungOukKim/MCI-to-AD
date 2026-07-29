@@ -27,7 +27,7 @@ injury effectors (NEFL, LCN2). TMT-MS marker–cognition analyses are reported a
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| CSF NEFL vs cognition | r = −0.35 (TMT-MS) | Strong; injury-arm positive control (NEFL vs pathology axis r = +0.48 [TMT], clears \|r\|>0.3) |
+| CSF NEFL vs cognition | r = −0.35 (TMT-MS) | Strong; injury-arm positive control (NEFL vs pathology axis r = +0.48 [TMT], clears absolute r > 0.3) |
 | CSF LCN2 vs cognition | r = −0.14 (TMT-MS, p = 2×10⁻⁶) | Weak; clearest on TMT-MS where the NEFL control is satisfied |
 | CSF LCN2 (SomaScan) | r = −0.10 | Direction-consistent but supportive only (SomaScan NEFL control did not clear threshold) |
 | CSF PTGDS (upstream) | TMT r = −0.02, n.s. (n = 1,104); cross-platform r ≈ 0.15 | Tissue-restricted; no robust cognitive association |

@@ -15,7 +15,7 @@
 #   FigS6_final.tiff  (300 dpi, LZW — journal submission)
 #
 # Data note:
-#   SEAAD_processed_data.RData contains cell-level data (~1.3M nuclei)
+#   SEAAD_processed_data.RData contains cell-level data (~1.38M nuclei)
 #   and cannot be redistributed (Allen Brain Atlas data use policy).
 #   Pre-computed summary CSV files are provided in data/SEA-AD/:
 #     FigS6_proportions.csv  — bin-level subtype proportions

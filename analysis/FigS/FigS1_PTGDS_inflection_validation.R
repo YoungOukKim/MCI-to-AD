@@ -34,7 +34,7 @@ set.seed(42)
 # ------------------------------------------------------------------------------
 # Paths (relative to repository root; override with environment variables)
 # ------------------------------------------------------------------------------
-# NOTE: SEAAD_processed_data.RData contains cell-level data (~1.3M nuclei)
+# NOTE: SEAAD_processed_data.RData contains cell-level data (~1.38M nuclei)
 #       and cannot be redistributed due to Allen Brain Atlas data use policy.
 #       Instead, use the pre-computed bin-level summary provided in this repo:
 #         data/SEA-AD/FigS1_bin_means.csv

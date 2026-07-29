@@ -2,18 +2,23 @@
 # P1_age_cps.R -- Donor-level relationship between chronological age and CPS in SEA-AD MTG.
 #
 # Reads ONLY the /obs metadata from the .h5ad (not the expression matrix), so it is fast
-# and low-memory even for 1.3M nuclei. Produces the real donor-level Spearman rho between
+# and low-memory even for ~1.38M nuclei. Produces the real donor-level Spearman rho between
 # age-at-death and CPS. Nothing is fabricated.
 #
 # REQUIREMENTS:  install.packages("hdf5r")
-# RUN:           Rscript P1_age_cps.R        (paths embedded below; override via env vars or arg)
+# RUN:           Rscript analysis/FigS/P1_age_cps.R      (run from the repository root)
+#                Override the defaults with the H5AD_PATH / OUTDIR environment variables,
+#                or pass the h5ad path as the first argument.
 # OUTPUT (OUTDIR): age_cps_donor.csv, age_cps_scatter.png
 
-# ---- paths (edit here or set H5AD_PATH / OUTDIR environment variables) ----
+# ---- paths (relative to the repository root; override via H5AD_PATH / OUTDIR) ----
+# The SEA-AD h5ad is not redistributed here. Obtain it from the Allen Brain Map portal
+# (see data/NOTE_restricted_data.md) and place it under data/SEA-AD/, or point
+# H5AD_PATH at wherever you keep it.
 MTG_H5 <- Sys.getenv("H5AD_PATH",
-                     unset = "D:/work/SEAAD_MTG_RNAseq_final-nuclei.2024-02-13.h5ad")
-OUTDIR <- Sys.getenv("OUTDIR",
-                     unset = "D:/work/paper2_package/aging")
+                     unset = file.path("data", "SEA-AD",
+                                       "SEAAD_MTG_RNAseq_final-nuclei.2024-02-13.h5ad"))
+OUTDIR <- Sys.getenv("OUTDIR", unset = file.path("output", "FigS8"))
 
 suppressWarnings(suppressMessages({
   if (!requireNamespace("hdf5r", quietly = TRUE))
