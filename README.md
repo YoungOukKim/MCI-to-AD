@@ -21,7 +21,7 @@ Analysis code and openly shareable data for the study of a reproducible **astroc
 
 ## Abstract
 
-Alzheimer's disease shows prolonged prodromal stability before accelerating decline, yet molecular markers resolving this heterogeneity are limited. Using pseudo-progression analysis of 1.24 million SEA-AD single nuclei retained after quality control (84 donors), we identify a reproducible biphasic astrocytic trajectory anchored to prostaglandin D2 synthase (PTGDS), with a statistically resolved donor-level inflection (quadratic beta2 = -2.27, p = 0.006; vertex CPS 0.47). The same directional change is independently reproduced in external brain proteomics (ROSMAP and Banner; AD versus control p = 3.4 x 10^-3), and the biphasic pattern reconciles previously conflicting CSF reports as stage-dependent. In ADNI CSF, downstream NEFL tracks cognitive decline strongly and LCN2 weakly, whereas PTGDS itself is tissue-restricted and not a stand-alone predictor. We propose, but do not establish, that post-inflection PTGDS attenuation accompanies LCN2-linked inflammation and NGFR suppression. These data position astrocytic PTGDS as a candidate stage marker, not a causal driver, of the compensatory-to-vulnerable shift in the aging brain — the astrocytic PTGDS inflection (CPS 0.47).
+Alzheimer's disease shows prolonged prodromal stability before accelerating decline, yet molecular markers resolving this heterogeneity are limited. Using pseudo-progression analysis of 1.24 million SEA-AD single nuclei retained after quality control (84 donors), we identify a reproducible biphasic astrocytic trajectory anchored to prostaglandin D2 synthase (PTGDS), with a statistically resolved donor-level inflection (quadratic beta2 = -2.27, p = 0.006; vertex CPS 0.47, bootstrap 95% CI 0.32-0.53). The same directional change is independently reproduced in external brain proteomics (ROSMAP and Banner; AD versus control p = 3.4 x 10^-3), and the biphasic pattern reconciles previously conflicting CSF reports as stage-dependent. In ADNI CSF, downstream NEFL tracks cognitive decline strongly and LCN2 weakly, whereas PTGDS itself is tissue-restricted and not a stand-alone predictor. We propose, but do not establish, that post-inflection PTGDS attenuation accompanies LCN2-linked inflammation and NGFR suppression. These data position astrocytic PTGDS as a candidate stage marker, not a causal driver, of the compensatory-to-vulnerable shift in prodromal Alzheimer's disease — the astrocytic PTGDS inflection (CPS 0.47).
 
 > **Preprint:** Research Square — https://doi.org/10.21203/rs.3.rs-9499795 (not peer reviewed). The manuscript is currently under review at *Alzheimer's Research & Therapy*.
 
@@ -139,7 +139,7 @@ MCI-to-AD/
 | Finding | Value | Method |
 | --- | --- | --- |
 | Astrocytic PTGDS inflection (donor-level) | vertex CPS 0.47 (beta2 = -2.27, p = 0.006; bootstrap 95% CI 0.32-0.53; n = 84) | Donor-level quadratic model |
-| Segmented breakpoint | CPS 0.23 (95% CI 0.13–0.33) | Davies' test (p = 0.032) |
+| Segmented breakpoint (bin-level) | CPS 0.23 (95% CI 0.13–0.33) | Davies' test (p = 0.032) on bin-level means, n = 9 bins |
 | External proteomic reproduction | AD vs control p = 3.4 x 10^-3 | ROSMAP/Banner consensus TMT-MS (Johnson et al.) |
 | CSF NEFL (positive control) | r = -0.35, p < 10^-30 | ADNI TMT-MS vs MMSE |
 | CSF LCN2 | TMT r = -0.14 (n = 1104); SomaScan r = -0.10 | ADNI proteomics vs MMSE |
@@ -149,6 +149,8 @@ MCI-to-AD/
 | Clinical alignment | MMSE 24–27 range | Cross-scale alignment |
 | Zebrafish avoidance deficit | -22.7% (p = 0.020) | Red-ball avoidance, 14 dpf |
 | Cross-species PTGDS conservation | 85.6% amino-acid identity | zebrafish ptgdsb vs human PTGDS |
+
+> **Donor-level versus bin-level.** All inferential statistics for the inflection — the quadratic term, the vertex, the bootstrap interval and the leave-one-donor-out refits — are computed at the **donor level (n = 84)**. The segmented-regression / Davies result is computed on **bin-level means (n = 9 bins)**, not on individual donors, and therefore does not provide independent donor-level support for the pre-peak limb. At the donor level the pre-peak rise is a directional trend that does not reach significance (slope +0.50, p = 0.45, n = 25 donors), whereas the post-peak decline does (slope -1.21, p = 0.003, n = 59 donors).
 
 > BXP-101 is used as a broad, multi-component NF-kB **pharmacological probe** to test whether the pre-inflection window is modifiable; it is not a PTGDS-specific intervention and does not establish PTGDS causality. See the competing-interests statement.
 
@@ -160,7 +162,7 @@ MCI-to-AD/
 * Key packages: `hdf5r`, `segmented`, `ggplot2`, `cowplot` (see `environment/packages.R`)
 
 ```r
-# Donor-level age vs CPS (Supplementary Fig. S7)
+# Donor-level age vs CPS (Additional file 1, Fig. S8)
 source("analysis/FigS/P1_age_cps.R")
 ```
 
